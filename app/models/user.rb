@@ -5,7 +5,6 @@ class User < ApplicationRecord
   has_many :spotteds, dependent: :destroy
   has_many :helped_pets, through: :spotted, source: :pets
   
-  validates :name, presence :true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end

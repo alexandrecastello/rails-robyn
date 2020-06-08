@@ -25,4 +25,4 @@ module RailsRobyn
 end
 
 # config to except error pages routes
-config.exceptions_app = self.routes
+# config.exceptions_app = self.routes

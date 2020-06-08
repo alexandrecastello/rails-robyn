@@ -1,5 +1,6 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: %i[show edit update destroy]
+  
   def index
     @pets = Pet.all
   end
@@ -38,7 +39,7 @@ class PetsController < ApplicationController
   end
 
   private
-
+  
   def pet_params
     params.require(:pet).permit(:name, :description, :species, :lost_date)
   end

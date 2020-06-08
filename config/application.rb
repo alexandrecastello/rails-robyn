@@ -13,6 +13,7 @@ module RailsRobyn
       generate.helper false
       generate.test_framework :test_unit, fixture: false
     end
+    config.time_zone = "America/Sao_Paulo"
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 

@@ -1,6 +1,10 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: %i[show edit update destroy]
+#  pundit-implement
   skip_after_action :verify_authorized, only: %i[ show new ]
+
+
+  
 
   def index
     @pets = Pet.all
@@ -42,7 +46,7 @@ class PetsController < ApplicationController
   end
 
   private
-
+  
   def pet_params
     params.require(:pet).permit(:name, :description, :species, :lost_date)
   end

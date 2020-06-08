@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 2020_06_08_165116) do
     t.string "name"
     t.string "species"
     t.string "description"
-    t.time "lost_date"
-    t.time "found_date"
+    t.datetime "lost_date"
+    t.datetime "found_date"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

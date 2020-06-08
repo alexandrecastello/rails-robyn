@@ -22,3 +22,6 @@ module RailsRobyn
     # the framework and any gems in your application.
   end
 end
+
+# config to except error pages routes
+config.exceptions_app = self.routes

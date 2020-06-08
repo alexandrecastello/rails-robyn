@@ -7,4 +7,6 @@ class Pet < ApplicationRecord
   validates :species, presence :true
   validates :description, presence :true
   validades :lost_date, presence :true
+
+  has_many_attached :photo
 end

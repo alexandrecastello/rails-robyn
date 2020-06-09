@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   end
   resources :users, only: %i[show]
   
-  # get 'user_profile', to: "pages#user_profile", as:'user'
+  get 'my_profile', to: "pages#my_profile", as:'profile'
   
-
 end

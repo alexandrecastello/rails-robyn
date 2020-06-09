@@ -3,7 +3,10 @@ class UsersController < ApplicationController
 
   def show
     raise
-    @spotteds = Pet.spotted(:id).where(user: current_user)
+    @spotteds = @user.pets
+  end
+
+  def ny_profile
   end
 
   def new

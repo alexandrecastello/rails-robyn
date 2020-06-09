@@ -12,6 +12,7 @@ class PetsController < ApplicationController
   end
   
   def show
+    @spotted = Spotted.new
   end
 
   def new

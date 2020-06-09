@@ -26,7 +26,7 @@ require("channels")
 import "bootstrap";
 import Inputmask from "inputmask";
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+import { initUpdateNavbarOnScroll } from './navbar';
 
 // application for mapbox events
 
@@ -37,23 +37,14 @@ document.addEventListener('turbolinks:load', () => {
     // Call your functions here, e.g:
     // initSelect2();
   initMapbox();
-  
+  initUpdateNavbarOnScroll();
   // configuração do InputMask
   const selector = document.getElementById("user_phone");
   const im = new Inputmask("(99)99999-9999");
   im.mask(selector);
 
-  window.onscroll = function() {offSetnav()};
-    var navbar = document.getElementById("navbar").offsetTop;
-  function offSetNav() {
-    if (window.pageYOffset >= sitcky) {
-      navbar.classList.add("sticky");
-      navbar.addClass('navbar-color')
-    } else {
-      navbar.classList.remove("sticky");
-      navbar.classList.removeClass("navbar-color");
-    }
-  }    
+// *********************** //
 
+  
 })
 

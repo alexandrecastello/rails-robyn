@@ -6,7 +6,7 @@ class PetsController < ApplicationController
 
   def index
     @pets = Pet.all
-    @pets = policy_scope(Pets)
+    @pets = policy_scope(Pet)
   end
   
   def show
@@ -15,20 +15,23 @@ class PetsController < ApplicationController
 
   def new
     @pet = Pet.new
+    # authorize @pet
   end
 
   def create
     @pet = Pet.new(pet_params)
     @pet.user = current_user
     @pet.name = @pet.name.capitalize
+    authorize @pet
     if @pet.save
-      redirect_to user_path(current_user), notice: 'Pet adicionado! Esperamos que ele retorne logo.'
+      redirect_to profile_path, notice: 'Pet adicionado! Esperamos que ele retorne logo.'
     else
       redirect_to new_pet_path, notice: 'Algo deu errado, seu pet ainda não foi adicionado'
     end
   end
   
   def edit
+    authorize @pet
   end
 
   def update
@@ -40,6 +43,7 @@ class PetsController < ApplicationController
   end
 
   def destroy # rever se queremos que o usuário posso deletar produtos
+    authorize @pet
     @pet.destroy
     redirect_to pets_path
   end

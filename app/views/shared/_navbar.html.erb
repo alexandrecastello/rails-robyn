@@ -3,6 +3,7 @@
     <%= image_tag "robyn.png" , alt: "Take me Home"%> Home
     <% end %>
 
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -25,11 +26,11 @@
           </div>
         </li>
       <% else %>
-        <li class="row nav-item">
-          <%= link_to "Como funciona", "#", class: "nav-link" %>
-          <strong><%= link_to "Ver pets", pets_path, class: "nav-link"%></strong>
-          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        <li class="row nav-item nav-text">
+          <%= link_to "Como funciona", "#", class: "nav-link mr-3" %>
+          <strong><%= link_to "Ver pets", pets_path, class: "nav-link mr-3"%></strong>
+          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link mr-3" %>
+          <%= link_to "Login", new_user_session_path, class: "nav-link mr-3" %>
         </li>
       <% end %>
     </ul>

@@ -24,19 +24,23 @@ require("channels")
 
 // External imports
 import "bootstrap";
-
+import Inputmask from "inputmask";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-
-document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
-});
 
 // application for mapbox events
 
 import { initMapbox } from '../plugins/init_mapbox';
 
 document.addEventListener('turbolinks:load', () => {
+  
+    // Call your functions here, e.g:
+    // initSelect2();
   initMapbox();
+  
+  // configuração do InputMask
+  const selector = document.getElementById("user_phone");
+  const im = new Inputmask("(99)99999-9999");
+  im.mask(selector);
+
 })

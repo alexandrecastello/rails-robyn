@@ -1,12 +1,17 @@
 // Specific CSS for your home-page
 
+body {
+  background-color: white;
+}
+
 .background-top {
-  background-image: url("../assets/bg-high.jpg");
+  background-image: url("../assets/newbackground.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
   width: 100%;
-  height: 1500px;
+  height: 100vh;
+  top: 0;
 }
 
 .headline {
@@ -25,18 +30,18 @@
 }
 
 .section {
-  margin-top: 60px;
+  margin-top: 10px;
 }
 
 .section h1 {
   font-family: Archivo Black;
   font-style: normal;
   font-weight: normal;
-  font-size: 3vw;
-  line-height: 65px;
+  font-size: 45px;
+  line-height: 55px;
   color: #767474;
   text-align: center;
-  width: 50%;
+  width: 40%;
 }
 
 .section h2 {
@@ -56,54 +61,158 @@
   margin-bottom: -30px;
 }
 
+.card {
+  border: none;
+  background-color: #F7F7F7;
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.button-white {
+  background: #FFFFFF;
+  border-radius: 30px;
+  color: #F88585;
+  font-family: Open Sans;
+  font-size: 20px;
+  border: none;
+  padding: 10px 30px;
+}
+
+.button-white:hover {
+  background-color: #F88585;
+  color: white;
+  transition: 0.5s;
+}
+
+.button-pink {
+  background: #F88585;
+  border-radius: 30px;
+  color: #FFFFFF;
+  font-family: Open Sans;
+  font-size: 20px;
+  border: none;
+  padding: 10px 30px;
+}
+
+.button-pink:hover {
+  background-color: #FFFFFF;
+  color: #F88585;
+  transition: 0.5s;
+}
+.read-more {
+  margin-top: 50px;
+}
+
 @media(max-width: 1920px) {
   .background-top {
-    background-image: url("../assets/bg-high.jpg");
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
+    background-image: url("../assets/newbackground.jpg");
+    background-size: contain;
     width: 100%;
-    height: 2000px;
   }
 
   .headline {
-    padding-top: 150px;
+    padding-top: 5%;
   }
 
   .headline h1 {
-    width: 60%;
+    width: 50%;
+    margin-left: -15rem;
     font-family: Archivo Black;
     font-style: normal;
     font-weight: normal;
-    font-size: 5vw;
+    font-size: 4vw;
     line-height: 85px;
     color: #2C2C2C;
     margin-bottom: 40px;
   }
+  .botoes {
+    margin-left: -250px;
+  }
+   .section {
+  margin-top: 0px;
+}
+  .section h1 {
+  font-family: Archivo Black;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 45px;
+  line-height: 55px;
+  color: #767474;
+  text-align: center;
+  width: 40%;
+}
+  .section h2 {
+  font-family: Archivo Black;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 65px;
+  color: #767474;
+  text-align: center;
+  width: 50%;
 }
 
-@media(max-width: 1280px) {
+  .section img {
+  width: 43px;
+  height: 43px;
+  margin-bottom: -30px;
+}
+}
+
+@media(max-width: 1366px) {
   .background-top {
-    background-image: url("../assets/bg-high.jpg");
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
+    background-image: url("../assets/newbackground.jpg");
+    background-size: contain;
     width: 100%;
-    height: 1500px;
+    height: 100vh;
   }
   .headline {
-    padding-top: 150px;
+    padding-top: 100px;
   }
   .headline h1 {
-    width: 45%;
+    width: 40%;
+    margin-left: -80px;
     font-family: Archivo Black;
     font-style: normal;
     font-weight: normal;
-    font-size: 5vw;
+    font-size: 4vw;
     line-height: 65px;
     color: #2C2C2C;
     margin-bottom: 20px;
   }
+  .botoes {
+    margin-left: -80px;
+  }
+  .section {
+  margin-top: -90px;
+}
+  .section h1 {
+  font-family: Archivo Black;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 45px;
+  line-height: 55px;
+  color: #767474;
+  text-align: center;
+  width: 40%;
+}
+
+  .section h2 {
+  font-family: Archivo Black;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 65px;
+  color: #767474;
+  text-align: center;
+  width: 50%;
+}
+
+  .section img {
+  width: 43px;
+  height: 43px;
+  margin-bottom: -30px;
+}
 }
 
 @media(max-width: 992px) {
@@ -120,7 +229,7 @@
   color: #2C2C2C;
 }
   .background-top {
-  background-image: url("../assets/main-bg-mobile.jpg");
+  background-image: url("../assets/newbackground.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   width: 100%;
@@ -142,7 +251,7 @@
   margin-bottom: 20px;
 }
   .background-top {
-  background-image: url("../assets/main-bg-mobile.jpg");
+  background-image: url("../assets/newbackground.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   width: 100%;
@@ -152,9 +261,12 @@
 @media screen and (max-device-width: 480px) {
   .headline {
   padding-top: 100px;
+  margin: auto;
+  display: inline-block;
   }
   .headline h1 {
   width: 80%;
+  margin-left: 20px;
   font-family: Archivo Black;
   font-style: normal;
   font-weight: normal;
@@ -165,9 +277,36 @@
 }
   .background-top {
   background-image: url("../assets/main-bg-mobile.jpg");
-  background-repeat: no-repeat;
+  background-repeat: cover;
   background-attachment: scroll;
   width: 100%;
-  height: 1200px;
+}
+.botoes {
+  margin-left: 20px;
+}
+.section {
+  width: auto;
+  margin-top: -590px;
+}
+.section h1 {
+  font-family: Archivo Black;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 55px;
+  color: #767474;
+  text-align: center;
+  width: 40%;
+  margin-top: 20px;
+}
+.section h2 {
+  font-family: Archivo Black;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 65px;
+  color: #767474;
+  text-align: center;
+  width: 50%;
 }
 }

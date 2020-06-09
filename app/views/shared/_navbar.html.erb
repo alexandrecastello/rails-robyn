@@ -22,7 +22,7 @@
             <%= image_tag "https://picsum.photos/id/237/400/400", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "My Profile", user_path, class: "dropdown-item" %>
+            <%= link_to "My Profile", profile_path, class: "dropdown-item" %>
             <%= link_to "Edit ", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Messages", "#", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>

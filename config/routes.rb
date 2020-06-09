@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   # get '/500', to: "errors#internal_error"
 
   resources :pets do
-    resources :spotted, only: :create
+    resources :spotted, only: %i[show create]
   end
-  get 'user_profile', to: "pages#user_profile", as:'user'
+  
+  get 'my_profile', to: "pages#my_profile", as:'profile'
+  
 
 end

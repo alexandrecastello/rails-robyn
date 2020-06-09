@@ -1,8 +1,14 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: %i[show edit update destroy]
+#  pundit-implement
+  skip_after_action :verify_authorized, only: %i[ show new ]
+
+
   
+
   def index
     @pets = Pet.all
+    @pets = policy_scope(Pets)
   end
   
   def show
@@ -27,6 +33,7 @@ class PetsController < ApplicationController
   end
 
   def update
+    authorize @pet
     @pet.update(pet_params)
     @pet.name = @pet.name.capitalize
     @pet.save

@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update]
 
   def show
-    @spotteds = Pet.spotted(:id).where(user: @user)
+    raise
+    @spotteds = Pet.spotted(:id).where(user: current_user)
   end
 
   def new

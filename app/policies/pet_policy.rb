@@ -6,5 +6,6 @@ class PetPolicy < ApplicationPolicy
 
     def update?
       record.user == user
+    end
   end
 end

@@ -12,14 +12,14 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Home", root, class: "nav-link" %>
+          <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Messages", "#", class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
-          <% if @user.photo.attached? %>
-            <%= cl_image_tag @product.photo.key, height: 400, width: 400,:fetch_format=>:auto, crop: :fill %>
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag @photo.photo.key, height: 400, width: 400,:fetch_format=>:auto, crop: :fill %>
           <% else %>
             <%= image_tag "https://picsum.photos/id/237/200/300", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>

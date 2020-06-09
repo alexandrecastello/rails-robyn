@@ -1,10 +1,8 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: %i[show edit update destroy]
 #  pundit-implement
-  skip_after_action :verify_authorized, only: %i[ show new ]
+  # skip_after_action :verify_authorized, only: %i[ show new ]
 
-
-  
 
   def index
     @pets = Pet.all

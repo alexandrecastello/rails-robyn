@@ -20,7 +20,18 @@
 }
 
 .nav-text {
- font-family: Open Sans;
- font-size: 20px;
- color: #2C2C2C;
+  font-family: Open Sans;
+  font-size: 20px;
+  color: #2C2C2C;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar-color-white {
+  background-color: #F6D0D1;
+  transition: 0.5s linear;
 }

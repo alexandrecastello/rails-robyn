@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   resources :pets do
     resources :spotted, only: %i[show create]
   end
-  resources :users, only: %i[show]
   
   get 'my_profile', to: "pages#my_profile", as:'profile'
   
+
 end

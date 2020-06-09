@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @spotteds = @user.pets
   end
 
-  def ny_profile
+  def my_profile
   end
 
   def new

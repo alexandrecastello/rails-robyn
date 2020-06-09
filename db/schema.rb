@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2020_06_08_182850) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
-    t.time "time"
+    t.datetime "time"
     t.string "comments"
     t.string "seen_or_rescued"
     t.bigint "user_id", null: false

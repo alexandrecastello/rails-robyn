@@ -4,7 +4,7 @@ class CreateSpotteds < ActiveRecord::Migration[6.0]
       t.string :address
       t.float :latitude
       t.float :longitude
-      t.time :time
+      t.datetime :time
       t.string :comments
       t.string :seen_or_rescued
       t.references :user, null: false, foreign_key: true

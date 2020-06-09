@@ -5,10 +5,10 @@
   <div class="container">
 
     <div class="container headline">
-      <h1>Perdeu seu pet? A gente te ajuda</h1>
+      <h1 class="texto">Perdeu seu pet? A gente te ajuda</h1>
 
       <div class="botoes">
-        <button type="button" class="button-white mr-3">Reportar pet perdido</button>
+        <button type="button" class="button-white mr-2">Reportar pet perdido</button>
         <button type="button" class="button-pink">Achei um pet</button>
       </div>
 
@@ -23,12 +23,12 @@
 <div class="container">
 
   <div class="d-flex justify-content-center section">
-    <h1>Ajude um pet a voltar para casa</h1>
+    <h1 class="texto">Ajude um pet a voltar para casa</h1>
   </div>
 
   <div class="row d-flex justify-content-center mt-5">
 
-  <div class="card-group">
+  <div class="card-group ml-5">
 
     <div class="card mr-5">
       <%= image_tag "pholder.png", class:"card-img-top card-pets" %>
@@ -37,7 +37,7 @@
         <br>
         <p class="card-text text-center">Data: xx/xx/xxxx</p>
         <p class="card-text text-center">Local: Bairro</p>
-        <p class="card-text text-center"><button type="button" class="btn btn-light">Reportar</button></p>
+        <p class="card-text text-center"><button type="button" class="button-purple">Reportar</button></p>
       </div>
     </div>
 
@@ -48,7 +48,7 @@
         <br>
         <p class="card-text text-center">Data: xx/xx/xxxx</p>
         <p class="card-text text-center">Local: Bairro</p>
-        <p class="card-text text-center"><button type="button" class="btn btn-light">Reportar</button></p>
+        <p class="card-text text-center"><button type="button" class="button-purple">Reportar</button></p>
       </div>
     </div>
 
@@ -59,7 +59,7 @@
         <br>
         <p class="card-text text-center">Data: xx/xx/xxxx</p>
         <p class="card-text text-center">Local: Bairro</p>
-        <p class="card-text text-center"><button type="button" class="btn btn-light">Reportar</button></p>
+        <p class="card-text text-center"><button type="button" class="button-purple">Reportar</button></p>
       </div>
     </div>
 
@@ -70,7 +70,7 @@
         <br>
         <p class="card-text text-center">Data: xx/xx/xxxx</p>
         <p class="card-text text-center">Local: Bairro</p>
-        <p class="card-text text-center"><button type="button" class="btn btn-light">Reportar</button></p>
+        <p class="card-text text-center"><button type="button" class="button-purple">Reportar</button></p>
       </div>
     </div>
   </div>
@@ -84,7 +84,31 @@
 
 <!-- Seção "Como funciona" -->
 
-<div class="container">
+<div class="container como-funciona">
+  <%= image_tag "robyn-vector.png", class: "bird" %>
+      <div style="width: 100%;">
+        <div style="width: 50%; height: 400px; float: left; background: #F88585;">
+          <div class="row d-flex justify-content-center mt-5 feature-desc">
+            <h1>Feature Description</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non mauris sem. Phasellus vitae urna lobortis</p>
+          </div>
+        </div>
+        <div style="margin-left: 50%; height: 400px; background: #FFCCCC;">
 
+        </div>
+      </div>
+      <div style="width: 100%;">
+        <div style="width: 50%; height: 400px; float: left; background: #A385F8;">
+            <div style="margin-top: 150px;">
+            <h1 style="font-size: 6vw;">140</h1>
+            <p>Pets encontrados desde Jan/2020</p>
+          </div>
+        </div>
+        <div style="margin-left: 50%; height: 400px; background: #85F8DC;">
+            <div class="row d-flex justify-content-center">
+            <h1 style="margin-top: 100px; color: gray;">Feature Description</h1>
+            <p style="color: gray">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non mauris sem. Phasellus vitae urna lobortis</p>
+          </div>
+        </div>
+      </div>
 </div>
-

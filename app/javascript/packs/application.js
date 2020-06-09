@@ -43,4 +43,17 @@ document.addEventListener('turbolinks:load', () => {
   const im = new Inputmask("(99)99999-9999");
   im.mask(selector);
 
+  window.onscroll = function() {offSetnav()};
+    var navbar = document.getElementById("navbar").offsetTop;
+  function offSetNav() {
+    if (window.pageYOffset >= sitcky) {
+      navbar.classList.add("sticky");
+      navbar.addClass('navbar-color')
+    } else {
+      navbar.classList.remove("sticky");
+      navbar.classList.removeClass("navbar-color");
+    }
+  }    
+
 })
+

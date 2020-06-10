@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_10_144056) do
+ActiveRecord::Schema.define(version: 2020_06_10_182819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,9 @@ ActiveRecord::Schema.define(version: 2020_06_10_144056) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "spotted_id"
+    t.string "lost_location"
+    t.float "lost_latitude"
+    t.float "lost_longitude"
     t.index ["spotted_id"], name: "index_pets_on_spotted_id"
     t.index ["user_id"], name: "index_pets_on_user_id"
   end

@@ -1,18 +1,28 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: %i[show edit update destroy]
 #  pundit-implement
-  # skip_after_action :verify_authorized, only: %i[ show new ]
+  skip_after_action :verify_authorized, only: %i[ show new ]
 
 
   def index
     @pets = Pet.all
     @pets = policy_scope(Pet)
+
+    
   end
   
   def show
     @spotted = Spotted.new
+    @markers = @pet.spotteds.map do |spotted| 
+      {
+        lat: spotted.latittude,
+        lng: spotted.longitude,
+        infoWindow: { content: render_to_string(partial: "/pets/map_box", locals: { pet: pet }) },
+        id: pet.id 
+      }
+    end
   end
-
+  
   def new
     @pet = Pet.new
     # authorize @pet

@@ -1,1 +1,30 @@
-<h1>This is My Profile</h1>
+<div class="container mt-5">
+  <table class="table">
+  <thead>
+    <th style="font-family: 'Roboto', sans-serif;">Product</th>
+    <th style="font-family: 'Roboto', sans-serif;">Quantity</th>
+    <% if @user == current_user %>
+      <th>Action</th>
+    <% end %>
+  </thead>
+  <% @pet.each do |pet| %>
+      <tr>
+        <td style="font-family: 'Roboto', sans-serif;"><%= link_to "#{pet.name.capitalize}", pet_path(pet) %></td>
+        <td><%= product.quantity %></td>
+        <% if pet.user == current_user %>
+          <td>
+            <div class="row justify-content-space-between">
+              <%= link_to edit_pet_path(pet), method: :delete,
+              data: { confirm: "Delete item?" } do %>
+                <i class="fa fa-trash d-flex justify-content-around pr-5"></i>
+              <% end %>
+              <%= link_to "#" "messages" do %>
+                <i class="fa fa-edit justify-content-around"></i>
+              <% end %>
+            </div>
+          </td>
+          <% end %>
+      </tr>
+  <% end %>
+</table>
+</div>

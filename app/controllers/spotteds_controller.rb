@@ -11,7 +11,6 @@ class SpottedsController < ApplicationController
     @spotted = Spotted.new(spotted_params)
     @spotted.pet = Pet.find(params[:pet_id])
     @spotted.user = current_user
-    #IMPLEMENTAR API para pegar longitude e latitude
     @spotted.save
     redirect_to pet_path(@spotted.pet)
     authorize @spotted

@@ -19,6 +19,7 @@ const markersToMap = (map, markers) => {
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
     const newMarker = new mapboxgl.Marker()
+    const mapMarkers = [];
     new mapboxgl.Marker()
       .setLngLat([ marker.lng, marker.lat ])
       .setPopup(popup)
@@ -74,7 +75,6 @@ const openInfoWindow = (markers) => {
       if (mapElement) { // build map only if there's a div#map to inject into
         const map = buildMap();
         const markers = JSON.parse(mapElement.dataset.markers);
-        const mapMarkers = [];
         //change markers here
         markersToMap(map, markers);
         fitMapMarker(map, markers);

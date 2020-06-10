@@ -21,8 +21,8 @@
 
 .nav-text {
   font-family: Open Sans;
-  font-size: 20px;
-  color: #2C2C2C;
+  font-size: 16px;
+  color: black!important;
 }
 
 .sticky {
@@ -34,4 +34,12 @@
 .navbar-color-white {
   background-color: #F6D0D1;
   transition: 0.5s linear;
+}
+
+.animated {
+  color: black!important;
+}
+.animated:hover {
+  transform: scale(1.05);
+  transition: all ease 500ms;
 }

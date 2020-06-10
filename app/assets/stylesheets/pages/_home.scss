@@ -88,22 +88,6 @@ body {
   transition: 0.5s;
 }
 
-.button-pink {
-  background: #F88585;
-  border-radius: 30px;
-  color: #FFFFFF;
-  font-family: Open Sans;
-  font-size: 17px;
-  border: none;
-  padding: 5px 20px;
-}
-
-.button-pink:hover {
-  background-color: #FFFFFF;
-  color: #F88585;
-  transition: 0.5s;
-}
-
 .button-purple {
   background: transparent;
   border-radius: 30px;
@@ -174,6 +158,64 @@ body {
 .bird {
   width: 100px;
 }
+
+.divisor {
+  width: 150px;
+  height: 8px;
+  background-image: linear-gradient(to right, #FE5F55, #F3A5A1);
+  margin: 0 0 35px 0;
+}
+
+.link-devise:link,
+.link-devise:hover,
+.link-devise:visited,
+.link-devise:active {
+  color: #C1C1C1;
+  font-family: Open Sans;
+}
+.open-sans {
+  font-family: Open Sans;
+}
+
+// Botões //
+
+.btn-custom {
+    font-family: Open Sans;
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 35px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    padding: 5px 20px;
+
+    border-radius: 40px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-custom:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-custom:focus {
+    outline: none;
+}
+
+.btn-custom.pink {
+       background-image: linear-gradient(to right, #F88585, #f15e64, #e14e53, #e2373f);  box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
+}
+
+// Responsividade //
 
 @media(max-width: 1920px) {
   .background-top {

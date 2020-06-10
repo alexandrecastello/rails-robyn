@@ -21,6 +21,9 @@
 
     <%= yield %>
 
-    <%= render 'shared/footer' %>
+    <% unless controller_name == "sessions" || controller_name == "registrations" || controller_name == "passwords" %>
+      <%= render 'shared/footer' %>
+    <% end %>
+
   </body>
 </html>

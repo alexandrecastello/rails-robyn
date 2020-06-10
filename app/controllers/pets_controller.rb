@@ -11,13 +11,13 @@ class PetsController < ApplicationController
   end
   
   def show
-    @spotted = Spotted.new
-    @markers = @pet.spotteds.map do |spotted| 
+    @pets = Spotted.geocoded.where(pet_id: @pet)
+    @markers = @pets.map do |spotted| 
       {
         lat: spotted.latitude,
         lng: spotted.longitude,
-        infoWindow: { content: render_to_string(partial: "/pets/mapbox", locals: { pet: @pet }) },
-        id: @pet.id 
+        # infoWindow: { content: render_to_string(partial: "/pets/mapbox", locals: { spotted: @spotted }) },
+        # id: @pet.id 
       }
     end
   end

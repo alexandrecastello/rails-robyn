@@ -72,38 +72,6 @@ body {
   border-radius: 10px 10px 0px 0px !important;
 }
 
-.button-white {
-  background: #FFFFFF;
-  border-radius: 30px;
-  color: #F88585;
-  font-family: Open Sans;
-  font-size: 17px;
-  border: none;
-  padding: 5px 20px;
-}
-
-.button-white:hover {
-  background-color: #F88585;
-  color: white;
-  transition: 0.5s;
-}
-
-.button-purple {
-  background: transparent;
-  border-radius: 30px;
-  color: #A385F8;
-  font-family: Open Sans;
-  font-size: 17px;
-  border: none;
-  padding: 5px 20px;
-}
-
-.button-purple:hover {
-  background-color: #A385F8;
-  color: white;
-  transition: 0.5s;
-}
-
 .read-more {
   margin-top: 50px;
 }
@@ -189,7 +157,6 @@ body {
     font-weight: 400;
     color: #fff;
     cursor: pointer;
-    margin: 20px;
     height: 35px;
     text-align:center;
     border: none;
@@ -217,6 +184,16 @@ body {
 
 .btn-custom.pink {
        background-image: linear-gradient(to right, #F88585, #f15e64, #e14e53, #e2373f);  box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
+}
+
+.btn-custom.purple {
+       background-image: linear-gradient(to right, #7250D2, #A385F8, #7250D2, #7250D2);  box-shadow: 0 5px 15px rgba(153, 112, 185, .4);
+}
+
+.btn-custom.white {
+       background-color: white;
+       color: #F88585!important;
+       box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
 }
 
 // Responsividade //

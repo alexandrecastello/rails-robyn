@@ -4,10 +4,11 @@ class Pet < ApplicationRecord
   has_many :helpers, through: :orders, source: :user
 
   has_many_attached :photo
+  geocoded_by :lost_location
 
   validates :name, presence: :true
   validates :species, presence: :true
   validates :description, presence: :true
   validates :lost_date, presence: :true
-
+  after_validation :geocode 
 end

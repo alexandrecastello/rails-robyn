@@ -20,6 +20,7 @@ class PetsController < ApplicationController
         # id: @pet.id 
       }
     end
+    @markers << { lat: @pet.latitude, lng: @pet.longitude }
   end
   
   def new

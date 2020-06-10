@@ -14,9 +14,9 @@
         <h1><%= @pet.name %></h1>
         <div>
           <p><strong>Descrição: </strong> <%= @pet.species %> - <%= @pet.description %></p>
-          <p><strong>Humano: </strong><%= "#{@pet.user.first_name} #{@pet.user.last_name}" %></p>
+          <p><strong>Humano: </strong><%= @pet.user == current_user ? 'Você' : "#{@pet.user.first_name} #{@pet.user.last_name}" %></p>
           <p><strong>Perdido desde: </strong><%= @pet.lost_date %></p>
-          <%= link_to 'Eu vi esse pet!', new_pet_spotted_path(@pet) %><p>Eu vi esse pet!</p> <%# ADICIONAR LINK PARA NEW_SPOTTED  %>
+          <%= link_to 'Eu vi esse pet!', new_pet_spotted_path(@pet) %>
         </div>
       </div>
     </div>

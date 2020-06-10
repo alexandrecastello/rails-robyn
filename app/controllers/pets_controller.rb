@@ -1,8 +1,7 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: %i[show edit update destroy]
-#  pundit-implement
-  # skip_after_action :verify_authorized, only: %i[ show new ]
-
+  #  pundit-implement
+  skip_after_action :verify_authorized, only: %i[ show new ]
 
   def index
     @pets = Pet.all
@@ -10,12 +9,10 @@ class PetsController < ApplicationController
   end
   
   def show
-    @spotted = Spotted.new
   end
 
   def new
     @pet = Pet.new
-    # authorize @pet
   end
 
   def create
@@ -24,7 +21,7 @@ class PetsController < ApplicationController
     @pet.name = @pet.name.capitalize
     authorize @pet
     if @pet.save
-      redirect_to profile_path, notice: 'Pet adicionado! Esperamos que ele retorne logo.'
+      redirect_to pet_path(@pet), notice: 'Pet adicionado! Esperamos que ele retorne logo.'
     else
       redirect_to new_pet_path, notice: 'Algo deu errado, seu pet ainda não foi adicionado'
     end

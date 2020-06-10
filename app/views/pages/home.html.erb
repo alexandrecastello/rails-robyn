@@ -8,8 +8,9 @@
       <h1 class="texto">Perdeu seu pet? A gente te ajuda</h1>
 
       <div class="botoes">
-        <button type="button" class="btn-custom white mr-3">Reportar pet perdido</button>
-        <button type="button" class="btn-custom pink">Achei um pet</button>
+        <%= link_to "Ver pets", pets_path, class: "btn-custom white mr-3"%>
+        <%= link_to "Perdi meu pet", new_pet_path, class: "btn-custom pink"%>
+
       </div>
 
     </div>

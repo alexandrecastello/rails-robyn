@@ -14,10 +14,10 @@ class PetsController < ApplicationController
     @spotted = Spotted.new
     @markers = @pet.spotteds.map do |spotted| 
       {
-        lat: spotted.latittude,
+        lat: spotted.latitude,
         lng: spotted.longitude,
-        infoWindow: { content: render_to_string(partial: "/pets/map_box", locals: { pet: pet }) },
-        id: pet.id 
+        infoWindow: { content: render_to_string(partial: "/pets/mapbox", locals: { pet: @pet }) },
+        id: @pet.id 
       }
     end
   end

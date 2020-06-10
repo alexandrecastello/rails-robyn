@@ -1,10 +1,10 @@
 <div class="container d-flex justify-content-center">
   <div class="row d-flex justify-content-space-around">
-    <%= simple_form_for(@pet) do |f| %>
+    <%= simple_form_for [@pet, @order] do |f| %>
       <%= f.input 'Local (endereço)', :address %>
       <%= f.input "Quando você viu #{@pet.name}?", :time %>
       <%= f.input 'Você resgatou o pet?', :seen_or_rescued, collection: ['Não, apenas vi.', 'Sim, está comigo!']  %>
-      <%= f.input "Por favor, acrescente mais detalhes sobre o local onde estava e sobre o estado do pet", :description %>
+      <%= f.input "Por favor, acrescente mais detalhes. (sobre o local onde estava, o estado do pet, etc)", :description %>
       <div class="row justify-content-center mt-4 mb-5">
         <%= f.submit 'Adicionar pet', class:"btn btn-primary btn-md" %>
       </div>

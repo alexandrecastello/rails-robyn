@@ -6,11 +6,22 @@ class PetsController < ApplicationController
   def index
     @pets = Pet.all
     @pets = policy_scope(Pet)
+
+    
   end
   
   def show
+    @spotted = Spotted.new
+    @markers = @pet.spotteds.map do |spotted| 
+      {
+        lat: spotted.latitude,
+        lng: spotted.longitude,
+        infoWindow: { content: render_to_string(partial: "/pets/mapbox", locals: { pet: @pet }) },
+        id: @pet.id 
+      }
+    end
   end
-
+  
   def new
     @pet = Pet.new
   end

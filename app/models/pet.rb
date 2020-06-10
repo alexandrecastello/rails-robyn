@@ -3,7 +3,7 @@ class Pet < ApplicationRecord
   has_many :spotteds
   has_many :helpers, through: :orders, source: :user
 
-  has_many_attached :photo
+  has_many_attached :photos
 
   validates :name, presence: :true
   validates :species, presence: :true

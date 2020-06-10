@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   # get '/500', to: "errors#internal_error"
 
   resources :pets do
+<<<<<<< HEAD
     resources :spotted, only: %i[create]
+=======
+    resources :spotteds, only: %i[show new create]
+>>>>>>> 5999914a73ce93d8f2941e3e3e18a0e46f021d91
   end
   
   get 'my_profile', to: "pages#my_profile", as:'profile'

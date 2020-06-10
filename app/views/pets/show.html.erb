@@ -1,7 +1,7 @@
 <div class="container m-5">
   <div class="row">
     <div class="col s3 offset-md-1">
-      <div class="imagebox" style="margin-left: -100px; margin-bottom: 50px;">
+      <div class="imagebox" style="margin-left: -100px; margin-bottom: 50px;width: 200px">
         <%# if @pet.photo.attached? %>
           <%#= cl_image_tag @pet.photo.key, height: 400, width: 400,:fetch_format=>:auto, crop: :fill %>
         <%# else %>
@@ -9,20 +9,20 @@
         <%# end %>
       </div>
     </div>
-    <div class="col s9" style="margin-top: 50px; margin-right: 420px;">
+    <div class="col s9" style="margin-top: 50px; margin-right: 250px; width:200px">
       <div class="container" style="font-family: 'Roboto', sans-serif; margin-top: -50px;">
         <h1><%= @pet.name %></h1>
         <div>
           <p><strong>Descrição: </strong> <%= @pet.species %> - <%= @pet.description %></p>
-          <p><strong>Humano: </strong><%#= "#{@pet.user.first_name @pet.user.last_name}" %></p>
+          <p><strong>Humano: </strong><%= "#{@pet.user.first_name} #{@pet.user.last_name}" %></p>
           <p><strong>Perdido desde: </strong><%= @pet.lost_date %></p>
-          <p>Eu vi esse pet!</p> <%# ADICIONAR LINK PARA NEW_SPOTTED  %>
+          <%= link_to 'Eu vi esse pet!', new_pet_spotted_path(@pet) %><p>Eu vi esse pet!</p> <%# ADICIONAR LINK PARA NEW_SPOTTED  %>
         </div>
       </div>
     </div>
   <%= render 'map_box' %>
   </div>
   <div class="col s3" style="margin-left: -10px; margin-bottom: 20px;">
-    <%= link_to 'Voltar para pets perdidos', pets_path %></li>
+    <%= link_to 'Voltar para pets perdidos',  pets_path %></li>
   </div>
 </div>

@@ -4,6 +4,15 @@ body {
   background-color: white;
 }
 
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: white;
+}
+
 .background-top {
   background-image: url("../assets/newbackground.jpg");
   background-repeat: no-repeat;
@@ -66,6 +75,7 @@ body {
   background-color: #F7F7F7;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  height: 400px;
 }
 
 .card-pets {
@@ -168,6 +178,7 @@ body {
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
+    text-decoration: none;
 }
 
 .btn-custom:hover {
@@ -176,6 +187,7 @@ body {
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
+    text-decoration: none;
 }
 
 .btn-custom:focus {
@@ -184,6 +196,7 @@ body {
 
 .btn-custom.pink {
        background-image: linear-gradient(to right, #F88585, #f15e64, #e14e53, #e2373f);  box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
+       text-decoration: none;
 }
 
 .btn-custom.purple {
@@ -206,7 +219,7 @@ body {
   }
 
   .headline {
-    padding-top: 6%;
+    padding-top: 8%;
   }
 
   .headline h1 {
@@ -221,7 +234,7 @@ body {
     margin-bottom: 40px;
   }
   .botoes {
-    margin-top: -30px;
+    margin-top: -10px;
     margin-left: -5rem;
   }
    .section {

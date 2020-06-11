@@ -4,8 +4,6 @@
     <th style="font-family: 'Roboto', sans-serif;">Pet</th>
     <th style="font-family: 'Roboto', sans-serif;">Last Seen On</th>
       <th>Action</th>
-    <% if @user == current_user %>
-    <% end %>
   </thead>
   <% @pets.each do |pet| %>
       <tr>
@@ -20,23 +18,21 @@
           </div>
         </td>
         <td style="font-family: 'Roboto', sans-serif;"><%= link_to "#{pet.spotteds.last.time.strftime("%H:%M of %d/%b/%y")}", pet_path(pet) %></td>
-        <% if pet.user == current_user %>
-          <td>
-            <div class="row justify-content-space-between">
-              <%= link_to edit_pet_path(pet), method: :delete,
-              data: { confirm: "Delete item?" } do %>
-                <i class="fa fa-trash d-flex justify-content-around pr-4"></i>
-              <% end %>
-              <%= link_to pet_path(pet) do %>
-                <i class="fa fa-edit justify-content-around pr-3"></i>
-              <% end %>
-              <%= link_to "pet_path" do %>
-                <i class="fa fa-paper-plane justify-content-around" aria-hidden="true"></i>
-              <% end %>
-            </div>
-          </td>
-          <% end %>
+        <td>
+          <div class="row justify-content-space-between">
+            <%= link_to edit_pet_path(pet), method: :delete,
+            data: { confirm: "Delete item?" } do %>
+              <i class="fa fa-trash d-flex justify-content-around pr-4"></i>
+            <% end %>
+            <%= link_to pet_path(pet) do %>
+              <i class="fa fa-edit justify-content-around pr-3"></i>
+            <% end %>
+            <%= link_to "pet_path" do %>
+              <i class="fa fa-paper-plane justify-content-around" aria-hidden="true"></i>
+            <% end %>
+          </div>
+        </td>
       </tr>
-  <% end %>
-</table>
+    <% end %>
+  </table>
 </div>

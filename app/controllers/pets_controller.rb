@@ -16,8 +16,7 @@ class PetsController < ApplicationController
       {
         lat: spotted.latitude,
         lng: spotted.longitude,
-        # infoWindow: { content: render_to_string(partial: "/pets/mapbox", locals: { spotted: @spotted }) },
-        # id: @pet.id 
+        infoWindow: render_to_string(partial: "pets/map_info_window", locals: { spotted: spotted })
       }
     end
     @markers << { lat: @pet.latitude, lng: @pet.longitude }

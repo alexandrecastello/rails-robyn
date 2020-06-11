@@ -14,10 +14,17 @@ class PetsController < ApplicationController
       {
         lat: spotted.latitude,
         lng: spotted.longitude,
-        infoWindow: render_to_string(partial: "pets/map_info_window", locals: { spotted: spotted })
+
+        infoWindow: render_to_string(partial: "pets/map_info_window", locals: { spotted: spotted }),
+        image_url: helpers.asset_url(spotted.pet.icon)
+
       }
     end
-    @markers << { lat: @pet.latitude, lng: @pet.longitude }
+    @markers << { lat: @pet.latitude, 
+                  lng: @pet.longitude,
+                  infoWindow: render_to_string(partial: "pets/map_info_window", locals: { pet: @pet }),
+                  image_url: helpers.asset_url('icons8-dog-house-50.png')
+                }
   end
 
 
@@ -31,6 +38,16 @@ class PetsController < ApplicationController
     @pet = Pet.new(pet_params)
     @pet.user = current_user
     @pet.name = @pet.name.capitalize
+    case @pet.species
+      when 'Cachorro'
+        @pet.icon = 'icons8-dog-50.png'
+      when 'Gato'
+        @pet.icon = 'icons8-cat-50-4.png'
+      when 'Ave'
+        @pet.icon = 'icons8-puffin-bird-50-2.png'
+      else
+        @pet.icon = 'icons8-marker-48.png'
+    end
     authorize @pet
     if @pet.save
       redirect_to pet_path(@pet), notice: 'Pet adicionado! Esperamos que ele retorne logo.'

@@ -8,8 +8,9 @@
       <h1 class="texto">Perdeu seu pet? A gente te ajuda</h1>
 
       <div class="botoes">
-        <button type="button" class="btn-custom white mr-3">Reportar pet perdido</button>
-        <button type="button" class="btn-custom pink">Achei um pet</button>
+        <%= link_to "Ver pets", pets_path, class: "btn-custom white mr-3"%>
+        <%= link_to "Perdi meu pet", new_pet_path, class: "btn-custom pink"%>
+
       </div>
 
     </div>
@@ -93,7 +94,7 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non mauris sem. Phasellus vitae urna lobortis</p>
           </div>
         </div>
-        <div style="margin-left: 50%; height: 400px; background: #FFCCCC;">
+        <div style="background-image: url('../assets/poster-home.png'); background-size: cover; margin-left: 50%; height: 400px;">
 
         </div>
       </div>

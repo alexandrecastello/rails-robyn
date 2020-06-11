@@ -9,9 +9,10 @@ Rails.application.routes.draw do
 
   resources :pets do
     resources :spotteds, only: %i[show new create]
+    get "pdf", to: "pets#pdf"
   end
-  
+
   get 'my_profile', to: "pages#my_profile", as:'profile'
-  
+
 
 end

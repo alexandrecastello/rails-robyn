@@ -25,4 +25,8 @@ class PetPolicy < ApplicationPolicy
     true
   end
 
+  def pdf?
+    true
+  end
+
 end

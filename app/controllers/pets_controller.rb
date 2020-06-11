@@ -6,13 +6,11 @@ class PetsController < ApplicationController
   def index
     @pets = Pet.all
     @pets = policy_scope(Pet)
-
-    
   end
-  
+
   def show
     @pets = Spotted.geocoded.where(pet_id: @pet)
-    @markers = @pets.map do |spotted| 
+    @markers = @pets.map do |spotted|
       {
         lat: spotted.latitude,
         lng: spotted.longitude,
@@ -21,7 +19,10 @@ class PetsController < ApplicationController
     end
     @markers << { lat: @pet.latitude, lng: @pet.longitude }
   end
-  
+
+
+
+
   def new
     @pet = Pet.new
   end
@@ -37,7 +38,7 @@ class PetsController < ApplicationController
       redirect_to new_pet_path, notice: 'Algo deu errado, seu pet ainda não foi adicionado'
     end
   end
-  
+
   def edit
     authorize @pet
   end
@@ -56,8 +57,32 @@ class PetsController < ApplicationController
     redirect_to pets_path
   end
 
+  def pdf
+    @pet = Pet.find(params[:pet_id])
+    authorize @pet
+
+    pdf_options = {
+      :page_size   => "A4",
+      :page_layout => :portrait,
+      :margin      => [40, 75]
+    }
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = Prawn::Document.new(pdf_options)
+        pdf.text "Nome: #{@pet.name}"
+        pdf.text "Espécie: #{@pet.species}"
+        pdf.text "Descrição: #{@pet.description}"
+        pdf.text "Perdido em: #{@pet.lost_date.to_s}"
+        pdf.text "Local: #{@pet.lost_location.to_s}"
+        send_data pdf.render, filename: 'pets.pdf', type: 'application/pdf'
+      end
+    end
+  end
+
   private
-  
+
   def pet_params
     params.require(:pet).permit(:name, :description, :species, :lost_date, :lost_location)
   end

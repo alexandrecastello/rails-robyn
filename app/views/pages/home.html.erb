@@ -31,16 +31,25 @@
 
   <div class="card-group ml-5">
 
-    <div class="card mr-5">
-      <%= image_tag "pholder.png", class:"card-img-top card-pets" %>
-      <div class="card-body">
-        <h5 class="card-title text-center">Card title</h5>
-        <br>
-        <p class="card-text text-center">Data: xx/xx/xxxx</p>
-        <p class="card-text text-center">Local: Bairro</p>
-        <p class="card-text text-center"><button type="button" class="btn-custom purple">Reportar</button></p>
+    <% @pets.each do |pet| %>
+      <div class="card mr-5">
+        <% if pet.photo.attached? %>
+
+          <%= cl_image_tag pet.photo.key, class: "card-img-top card-pets" %>
+        <% else %>
+          <%= image_tag "pholder.png", class:"card-img-top card-pets" %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title text-center"><%= pet.name %></h5>
+          <br>
+          <p class="card-text text-center">Data</p>
+          <p class="card-text text-center"><%= pet.lost_date.strftime("%d/%b/%y")%><p>
+          <p class="card-text text-center">Local</p>
+          <p class="card-text text-center">##<%#=pet.lost_location %></p>
+          <p class="card-text text-center"><button type="button" class="btn-custom purple">Reportar</button></p>
+        </div>
       </div>
-    </div>
+    <% end %>  
 
     <div class="card mr-5">
       <%= image_tag "pholder.png", class:"card-img-top card-pets" %>
@@ -77,10 +86,10 @@
   </div>
   </div>
 
-    <div class="d-flex justify-content-center section mt-3">
+  
+    <%= link_to "/pets", class: "d-flex justify-content-center section mt-3" do %>
       <h2>Ver todos</h2>
-    </div>
-
+    <% end %>
 </div>
 
 <!-- Seção "Como funciona" -->

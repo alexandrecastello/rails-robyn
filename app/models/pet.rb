@@ -4,7 +4,8 @@ class Pet < ApplicationRecord
   has_many :helpers, through: :orders, source: :user
 
 
-  has_many_attached :photos
+  has_one_attached :photo
+  
   geocoded_by :lost_location
 
 

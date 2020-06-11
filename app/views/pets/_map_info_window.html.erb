@@ -1,7 +1,6 @@
 <%# Partial for map info windows %>
 <div class="info window">
-
-  <h2><%= @pet.name %></h2>
-  <p><%= @pet.lost_date %></p>
-  <p><%= @pet.user.first_name %></p>
+  <h5>Rescued?<h5><h6><%= spotted.seen_or_rescued %><h6>
+  <h5>Spotted Time:<h5><h6> <%= spotted.created_at.strftime("%H:%M of %d/%b/%y") %><h6>
+  <h5>Spotted User<h5><h6> <%= link_to "#{spotted.user.first_name}" %><h6>
 </div>

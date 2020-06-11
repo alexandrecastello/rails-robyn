@@ -14,8 +14,10 @@ class PetsController < ApplicationController
       {
         lat: spotted.latitude,
         lng: spotted.longitude,
+
         infoWindow: render_to_string(partial: "pets/map_info_window", locals: { spotted: spotted }),
         image_url: helpers.asset_url(spotted.pet.icon)
+
       }
     end
     @markers << { lat: @pet.latitude, 

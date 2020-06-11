@@ -4,7 +4,7 @@ const buildMap = () => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10'
+    style: 'mapbox://styles/alecastello/ckb9tunoq1c9f1mmmx6jj2p81'
   });
 };
 const addMarkersToMap = (map, markers) => {
@@ -17,8 +17,8 @@ const addMarkersToMap = (map, markers) => {
     element.className = 'marker';
     element.style.backgroundImage = `url('${marker.image_url}')`;
     element.style.backgroundSize = 'contain';
-    element.style.width = '25px';
-    element.style.height = '25px';
+    element.style.width = '50px';
+    element.style.height = '50px';
   
     // Pass the element as an argument to the new marker
     new mapboxgl.Marker(element)

@@ -40,6 +40,7 @@ const openInfoWindow = (markers) => {
   cards.forEach((card, index) => {
       card.addEventListener('mouseenter', () => {
           markers[index].togglePopup();
+          debugger
   });
   card.addEventListener('mouseleave', () => {
       markers[index].togglePopup();

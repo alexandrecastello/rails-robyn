@@ -6,23 +6,28 @@ class PetsController < ApplicationController
   def index
     @pets = Pet.all
     @pets = policy_scope(Pet)
-
-    
   end
-  
+
   def show
     @pets = Spotted.geocoded.where(pet_id: @pet)
-    @markers = @pets.map do |spotted| 
+    @markers = @pets.map do |spotted|
       {
         lat: spotted.latitude,
         lng: spotted.longitude,
-        # infoWindow: { content: render_to_string(partial: "/pets/mapbox", locals: { spotted: @spotted }) },
-        # id: @pet.id 
+        infoWindow: render_to_string(partial: "pets/map_info_window", locals: { spotted: spotted }),
+        image_url: helpers.asset_url(spotted.pet.icon)
       }
     end
-    @markers << { lat: @pet.latitude, lng: @pet.longitude }
+    @markers << { lat: @pet.latitude, 
+                  lng: @pet.longitude,
+                  infoWindow: render_to_string(partial: "pets/map_info_window", locals: { pet: @pet }),
+                  image_url: helpers.asset_url('icons8-dog-house-50.png')
+                }
   end
-  
+
+
+
+
   def new
     @pet = Pet.new
   end
@@ -31,6 +36,16 @@ class PetsController < ApplicationController
     @pet = Pet.new(pet_params)
     @pet.user = current_user
     @pet.name = @pet.name.capitalize
+    case @pet.species
+      when 'Cachorro'
+        @pet.icon = 'icons8-dog-50.png'
+      when 'Gato'
+        @pet.icon = 'icons8-cat-50-4.png'
+      when 'Ave'
+        @pet.icon = 'icons8-puffin-bird-50-2.png'
+      else
+        @pet.icon = 'icons8-marker-48.png'
+    end
     authorize @pet
     if @pet.save
       redirect_to pet_path(@pet), notice: 'Pet adicionado! Esperamos que ele retorne logo.'
@@ -38,7 +53,7 @@ class PetsController < ApplicationController
       redirect_to new_pet_path, notice: 'Algo deu errado, seu pet ainda não foi adicionado'
     end
   end
-  
+
   def edit
     authorize @pet
   end
@@ -57,8 +72,32 @@ class PetsController < ApplicationController
     redirect_to pets_path
   end
 
+  def pdf
+    @pet = Pet.find(params[:pet_id])
+    authorize @pet
+
+    pdf_options = {
+      :page_size   => "A4",
+      :page_layout => :portrait,
+      :margin      => [40, 75]
+    }
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = Prawn::Document.new(pdf_options)
+        pdf.text "Nome: #{@pet.name}"
+        pdf.text "Espécie: #{@pet.species}"
+        pdf.text "Descrição: #{@pet.description}"
+        pdf.text "Perdido em: #{@pet.lost_date.to_s}"
+        pdf.text "Local: #{@pet.lost_location.to_s}"
+        send_data pdf.render, filename: 'pets.pdf', type: 'application/pdf'
+      end
+    end
+  end
+
   private
-  
+
   def pet_params
     params.require(:pet).permit(:name, :description, :species, :lost_date, :lost_location)
   end

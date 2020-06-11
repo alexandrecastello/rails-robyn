@@ -35,7 +35,7 @@
       <div class="card mr-5">
         <% if pet.photo.attached? %>
 
-          <%= cl_image_tag pet.photo.key, class: "card-img-top card-pets" %>
+          <%= cl_image_tag pet.photo.key, class: "card-img-top card-pets", width: "95", height: "95", crop:"scale" %>
         <% else %>
           <%= image_tag "pholder.png", class:"card-img-top card-pets" %>
         <% end %>

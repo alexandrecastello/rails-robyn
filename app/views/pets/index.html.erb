@@ -10,11 +10,11 @@
     <% @pets.each do |pet| %>
       <div class="card text-center col-2 m-3 w-100 pr-0 pl-0 border-white shadow-sm">
         <%= link_to pet_path(pet) do %>
-          <%# if pet.photo.attached? %>
-        <%#= cl_image_tag pet.photo.key, class:"figure", height: 125, width: 190, :fetch_format=>:auto, crop: :fill %>
-          <%# else %>
+          <% if pet.photo.attached? %>
+        <%= cl_image_tag pet.photo.key, class:"card-img-top", :fetch_format=>:auto, crop: :fill %>
+          <% else %>
             <%= image_tag "placeholder.png", class:"card-img-top" %>
-          <%# end %>
+          <% end %>
           <div class="card-body">
             <h5 class="card-title" style="font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 18px;"><%= pet.name %></h5>
 

@@ -9,18 +9,22 @@
       <tr>
         <td>
           <div class="row justify-content-space-between">
-          <% if pet.photos.attached? %>
-            <%= cl_image_tag pet.photo.first.key, height: 30, width: 30, :fetch_format=>:auto, crop: :fill %>
+          <% if pet.photo.attached? %>
+            <%= cl_image_tag pet.photo.key, class:"img-responsive mr-2", height: '30', width: '30', :fetch_format=>:auto, crop: :fill %>
             <% else %>
-            <%= image_tag("placeholder.png", class:"menu-icon mr-1", height: '30', width: '30') %>
+            <%= image_tag("placeholder.png", class:"avatar", height: '30', width: '30') %>
             <% end %>
             <%= link_to "#{pet.name.capitalize}", pet_path(pet), style: "font-family: 'Roboto', sans-serif;" %> 
           </div>
         </td>
+        <% if pet.spotteds.empty? %>
+        <td><p>Pet Not Seen Yet...<p></td>
+        <% else %>
         <td style="font-family: 'Roboto', sans-serif;"><%= link_to "#{pet.spotteds.last.time.strftime("%H:%M of %d/%b/%y")}", pet_path(pet) %></td>
+        <%end%>
         <td>
           <div class="row justify-content-space-between">
-            <%= link_to edit_pet_path(pet), method: :delete,
+            <%= link_to pet_path(pet), method: :delete,
             data: { confirm: "Delete item?" } do %>
               <i class="fa fa-trash d-flex justify-content-around pr-4"></i>
             <% end %>

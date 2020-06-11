@@ -2,11 +2,12 @@
   <div class="row">
     <div class="col s3 offset-md-1">
       <div class="imagebox" style="margin-left: -100px; margin-bottom: 50px;width: 200px">
-        <%# if @pet.photo.attached? %>
-          <%#= cl_image_tag @pet.photo.key, height: 400, width: 400,:fetch_format=>:auto, crop: :fill %>
-        <%# else %>
+        <% if @pet.photo.attached? %>
+          <%= cl_image_tag @pet.photo.key, class:"card-img-top" %>
+          <%# raise %>
+        <% else %>
           <%= image_tag "placeholder.png", class:"card-img-top" %>
-        <%# end %>
+        <% end %>
       </div>
     </div>
     <div class="col s9" style="margin-top: 50px; margin-right: 250px; width:200px">

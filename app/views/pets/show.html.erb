@@ -14,14 +14,19 @@
       <div class="container" style="font-family: 'Roboto', sans-serif; margin-top: -50px;">
         <h1><%= @pet.name %></h1>
         <div>
-          <p><strong>Descrição: </strong> <%= @pet.species %> - <%= @pet.description %></p>
+          <p><strong>Descrição: </strong><%= @pet.species %> - <%= @pet.description %></p>
           <p><strong>Humano: </strong><%= @pet.user == current_user ? 'Você' : "#{@pet.user.first_name} #{@pet.user.last_name}" %></p>
-          <p><strong>Perdido desde: </strong><%= @pet.lost_date %></p>
+          <p><strong>Perdido desde: </strong><br><%= @pet.lost_date.strftime("%d/%b/%y às %H:%M") %></p>
           <%= link_to 'Eu vi esse pet!', new_pet_spotted_path(@pet) %>
         </div>
       </div>
     </div>
   <%= render 'mapbox'%>
+  <% if @pet.user == current_user %>
+    <div class="col s3" style="margin-left: -10px; margin-bottom: 20px;">
+      <%= link_to 'Meu pet voltou para casa!',  edit_pet_path(@pet) %></li>
+    </div>
+  <% end %>
   <div class="col s3" style="margin-left: -10px; margin-bottom: 20px;">
     <%= link_to 'Voltar para pets perdidos',  pets_path %></li>
   </div>

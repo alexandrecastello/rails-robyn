@@ -18,7 +18,7 @@
           </div>
         </td>
         <% if pet.spotteds.empty? %>
-        <td><p>Pet Not Seen Yet...<p></td>
+        <td><p><%= pet.species %> ainda não foi visto...<p></td>
         <% else %>
         <td style="font-family: 'Roboto', sans-serif;"><%= link_to "#{pet.spotteds.last.time.strftime("%H:%M of %d/%b/%y")}", pet_path(pet) %></td>
         <%end%>

@@ -14,10 +14,8 @@ class PetsController < ApplicationController
       {
         lat: spotted.latitude,
         lng: spotted.longitude,
-
-        infoWindow: render_to_string(partial: "pets/map_info_window", locals: { spotted: spotted }),
+        infoWindow: render_to_string(partial: "spotteds/map_info_window", locals: { spotted: spotted }),
         image_url: helpers.asset_url(spotted.pet.icon)
-
       }
     end
     @markers << { lat: @pet.latitude, 
@@ -25,7 +23,7 @@ class PetsController < ApplicationController
                   infoWindow: render_to_string(partial: "pets/map_info_window", locals: { pet: @pet }),
                   image_url: helpers.asset_url('icons8-dog-house-50.png')
                 }
-  end
+    end
 
 
 
@@ -61,11 +59,23 @@ class PetsController < ApplicationController
   end
 
   def update
-    authorize @pet
-    @pet.update(pet_params)
     @pet.name = @pet.name.capitalize
-    @pet.save
-    redirect_to pet_path(@pet)
+    case @pet.species
+      when 'Cachorro'
+        @pet.icon = 'icons8-dog-50.png'
+      when 'Gato'
+        @pet.icon = 'icons8-cat-50-4.png'
+      when 'Ave'
+        @pet.icon = 'icons8-puffin-bird-50-2.png'
+      else
+        @pet.icon = 'icons8-marker-48.png'
+    end
+    authorize @pet
+    if @pet.save
+      redirect_to pet_path(@pet), notice: "Pet atualizado.  #{ @pet.found_date ? 'Ficamos felizes em saber que seu pet voltou!' : 'Esperamos que ele retorne logo.' }"
+    else
+      redirect_to new_pet_path, notice: 'Algo deu errado, seu pet ainda não foi atualizado'
+    end
   end
 
   def destroy # rever se queremos que o usuário posso deletar produtos

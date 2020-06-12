@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
 
-  <%= link_to "http://localhost:3000", class: "navbar-brand" do %>
+  <%= link_to "http://robyn-pet-finder.herokuapp.com", class: "navbar-brand" do %>
     <%= image_tag "robyn-vector.png", class: "bird" %>
     <strong>Robyn</strong>
     <% end %>
@@ -13,7 +13,8 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="row nav-item active">
-          <%= link_to "Como funciona", "#", class: "animated nav-link mr-4" %>
+          <%= link_to "Como funciona", "http://robyn-pet-finder.herokuapp.com/#como-funciona", class: "animated nav-link mr-4" %>
+          <%= link_to "Perdi meu pet", new_pet_path, class: "animated nav-link mr-4" %>
           <strong><%= link_to "Ver pets", pets_path, class: "animated nav-link mr-5"%></strong>
         </li>
         <li class="nav-item dropdown">
@@ -31,7 +32,7 @@
         </li>
       <% else %>
         <li class="row nav-item nav-text">
-          <%= link_to "Como funciona", "http://localhost:3000/#como-funciona", class: "animated nav-link mr-3 nav-item active" %>
+          <%= link_to "Como funciona", "http://robyn-pet-finder.herokuapp.com/#como-funciona", class: "animated nav-link mr-3 nav-item active" %>
           <strong><%= link_to "Ver pets", pets_path, class: "animated nav-link mr-3 nav-item active"%></strong>
           <%= link_to "Cadastre-se", new_user_registration_path, class: "animated nav-link mr-3 nav-item active" %>
           <%= link_to "Entrar", new_user_session_path, class: "animated nav-link mr-3 nav-item active" %>

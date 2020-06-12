@@ -10,25 +10,25 @@
       <div class="card text-center col-2 m-3 w-100 pr-0 pl-0 border-white shadow-sm">
         <%= link_to pet_path(pet) do %>
           <% if pet.photo.attached? %>
-        <%= cl_image_tag pet.photo.key, class:"card-img-top card-pets", width: "95", height: "150"%>
+            <%= cl_image_tag pet.photo.key, class:"card-img-top card-pets", width: "95", height: "150"%>
           <% else %>
             <%= image_tag "pholder.png", class:"card-img-top card-pets" %>
           <% end %>
           <div class="card-body">
             <h5 class="card-title text-center open-sans"><strong><%= pet.name %></strong></h5>
-          <br>
-          <p class="card-text text-center open-sans">Data: <%= pet.lost_date.strftime("%d/%b/%y")%></p>
-          <p class="card-text text-center open-sans">Cidade<%#=pet.lost_location %></p>
-          <div class="d-flex flex-row justify-content-center mt-4">
-          <%= link_to new_pet_spotted_path(pet), :title => "Vi este pet!" do %>
-          <p class="card-text text-center mt-4 link-icon mr-3"><i class="fas fa-binoculars"></i></p>
-          <% end %>
-          <%= link_to pet_pdf_path(pet, format: 'pdf'), :title => "Imprimir pôster" do %>
-          <p class="card-text text-center mt-4 link-icon mr-3"><i class="fas fa-file-image"></i></p>
-          <% end %>
-          <p class="card-text text-center mt-4 link-icon"><i class="fas fa-share-alt"></i></p>
-          </div>
-          </div>
+            <br>
+            <p class="card-text text-center open-sans">Data: <%= pet.lost_date.strftime("%d/%b/%y")%></p>
+            <p class="card-text text-center open-sans">Cidade<%#=pet.lost_location %></p>
+            <div class="d-flex flex-row justify-content-center mt-4">
+              <%= link_to new_pet_spotted_path(pet), :title => "Vi este pet!" do %>
+                <p class="card-text text-center mt-4 link-icon mr-3"><i class="fas fa-binoculars"></i></p>
+              <% end %>
+              <%= link_to pet_pdf_path(pet, format: 'pdf'), :title => "Imprimir pôster" do %>
+                <p class="card-text text-center mt-4 link-icon mr-3"><i class="fas fa-file-image"></i></p>
+              <% end %>
+              <p class="card-text text-center mt-4 link-icon"><i class="fas fa-share-alt"></i></p>
+            </div>
+          </div>  
         <% end %>
       </div>
     <% end %>

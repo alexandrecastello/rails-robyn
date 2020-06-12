@@ -17,11 +17,9 @@
           <p><strong>Humano: </strong><%= @pet.user == current_user ? 'Você' : "#{@pet.user.first_name} #{@pet.user.last_name}" %></p>
 
           <% if @pet.user == current_user %>
-            <div class="btn-custom pink mt-3 mb-3">
-              <%= link_to 'Meu pet voltou para casa!',  edit_pet_path(@pet) %></li>
-            </div>
+              <%= link_to "Meu pet voltou para casa!", edit_pet_path(@pet), class:"btn-custom pink mt-3 mb-3" %>
             <% else %>
-              <%= link_to " Eu vi esse pet", new_pet_spotted_path(@pet),class:"btn-custom pink mt-3 mb-3" %>
+              <%= link_to " Eu vi esse pet", new_pet_spotted_path(@pet), class:"btn-custom pink mt-3 mb-3" %>
           <% end %>
         </div>
       </div>

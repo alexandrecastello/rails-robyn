@@ -2,6 +2,7 @@ class PetsController < ApplicationController
   before_action :set_pet, only: %i[show edit update destroy]
   #  pundit-implement
   skip_after_action :verify_authorized, only: %i[ show new ]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @pets = Pet.all
@@ -18,7 +19,7 @@ class PetsController < ApplicationController
         image_url: helpers.asset_url(spotted.pet.icon)
       }
     end
-    @markers << { lat: @pet.latitude, 
+    @markers << { lat: @pet.latitude,
                   lng: @pet.longitude,
                   infoWindow: render_to_string(partial: "pets/map_info_window", locals: { pet: @pet }),
                   image_url: helpers.asset_url('icons8-dog-house-50.png')

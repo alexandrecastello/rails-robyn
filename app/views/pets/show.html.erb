@@ -1,11 +1,11 @@
 <div class="container mt-5 justify-content-center">
-  <div class="justify-content-center" >
-    <h3>Ajude a achar o <%= @pet.name %></h3>
-    <h6>Perdido desde <%= @pet.lost_date.strftime("%d/%b/%y")%></h6>
-    <div class="row mt-3">
+  <div class="justify-content-center" style="margin-top: 80px;" >
+    <h3 class="open-sans" style="font-size: 36px;">Ajude a achar o <strong><%= @pet.name %></strong></h3>
+    <h5 class="open-sans">Perdido desde <strong><%= @pet.lost_date.strftime("%d/%b/%y")%></strong></h5>
+    <div class="row mt-5">
       <div class="col s3">
           <% if @pet.photo.attached? %>
-            <%= cl_image_tag @pet.photo.key, class:"card-img-top" %>
+            <%= cl_image_tag @pet.photo.key, class:"card-img-top card-pets" %>
           <% else %>
             <%= image_tag "placeholder.png", class:"card-img-top" %>
           <% end %>
@@ -26,8 +26,8 @@
     </div>
 
     <br>
-    <p> Visto em <p>
-    <%= render 'mapbox'%>
+    <p class="open-sans" style="font-size: 20px;">Visto em<p>
+    <%= render 'mapbox', markers: @markers %>
 
     </div>
   </div>

@@ -40,9 +40,10 @@ document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
   // configuração do InputMask
   const selector = document.getElementById("user_phone");
-  const im = new Inputmask("(99)99999-9999");
-  im.mask(selector);
-
+  if (selector) {
+    const im = new Inputmask("(99)99999-9999");
+    im.mask(selector);
+  }
 // *********************** //
 
   

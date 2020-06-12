@@ -87,6 +87,10 @@ a:hover {
   border-radius: 10px 10px 0px 0px !important;
 }
 
+.card-show {
+  border-radius: 10px 10px 0px 0px !important;
+}
+
 .link-icon {
   color: black;
 }
@@ -282,10 +286,6 @@ a:hover {
   }
 
 }
-
-
-
-
 
 @media only screen and (min-device-width: 1920px) and (max-device-width: 2160px) {
   .background-top {
@@ -680,8 +680,8 @@ a:hover {
     font-family: Archivo Black;
     font-style: normal;
     font-weight: normal;
-    font-size: 4vw;
-    line-height: 65px;
+    font-size: 60px;
+    line-height: 55px;
     color: #2C2C2C;
     margin-bottom: 30px;
   }
@@ -689,7 +689,7 @@ a:hover {
     margin-left: -80px;
   }
   .section {
-  margin-top: -40px;
+  margin-top: 60px;
 }
   .section h1 {
   font-family: Archivo Black;

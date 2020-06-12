@@ -10,9 +10,9 @@
       <div class="card text-center col-2 m-3 w-100 pr-0 pl-0 border-white shadow-sm">
         <%= link_to pet_path(pet) do %>
           <% if pet.photo.attached? %>
-            <%= cl_image_tag pet.photo.key, class:"card-img-top card-pets", width: "95", height: "150"%>
+        <%= cl_image_tag pet.photo.key, class:"card-img-top card-show", width: "95", height: "150" %>
           <% else %>
-            <%= image_tag "pholder.png", class:"card-img-top card-pets" %>
+            <%= image_tag "pholder.png", class:"card-img-top card-show" %>
           <% end %>
           <div class="card-body">
             <h5 class="card-title text-center open-sans"><strong><%= pet.name %></strong></h5>

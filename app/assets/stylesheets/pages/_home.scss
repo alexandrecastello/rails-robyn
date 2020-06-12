@@ -10,7 +10,12 @@ a {
 
 a:hover {
   text-decoration: none;
-  color: white;
+  color: black;
+}
+
+.link-white:hover {
+  text-decoration: none;
+  color: white !important;
 }
 
 .background-top {
@@ -73,13 +78,21 @@ a:hover {
 .card {
   border: none;
   background-color: #F7F7F7;
-  border-radius: 10px;
+  border-radius: 10px !important;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  height: 420px;
+  height: 380px;
 }
 
 .card-pets {
   border-radius: 10px 10px 0px 0px !important;
+}
+
+.link-icon {
+  color: black;
+}
+
+.link-icon:hover {
+  color: #71349b;
 }
 
 .read-more {

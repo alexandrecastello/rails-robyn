@@ -1,13 +1,38 @@
-<div class="container d-flex justify-content-center mt-5">
-  <div class="row d-flex justify-content-space-around">
-    <%= simple_form_for [@pet, @spotted] do |f| %>
-      <%= f.input :address, label: 'Local (endereço)' %>
+<div class="container mt-5">
+  <div class="row justify-content-center align-items-center" style="margin-top: 150px;">
+    <div class="col-md-6">
+        <h3 class="text-center open-sans">Onde você viu <strong><%= "#{@pet.name}" %></strong>?</h3>
+        <div class="row justify-content-center align-items-center">
+          <div class="divisor"></div>
+        </div>
+
+          <%= simple_form_for [@pet, @spotted] do |f| %>
+      <%= f.input :address, label: 'Insira o endereço completo:' %>
       <%= f.input :time, as: :datetime,  label: "Quando você viu #{@pet.name}?" %>
       <%= f.input :seen_or_rescued, label: 'Você resgatou o pet?', collection: ['Não, apenas vi.', 'Sim, está comigo!']  %>
-      <%= f.input :comments, label: "Por favor, acrescente mais detalhes. (sobre o local onde estava, o estado do pet, etc)"  %>
+      <%= f.input :comments, label: "Por favor, acrescente mais detalhes:"  %>
       <div class="row justify-content-center mt-4 mb-5">
-        <%= f.submit 'Adicionar ajuda', class:"btn btn-primary btn-md" %>
+        <%= f.submit "Enviar", class:"btn-custom pink"%>
       </div>
     <% end %>
+
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container d-flex justify-content-center mt-5">
+  <div class="row d-flex justify-content-space-around">
+
   </div>
 </div>

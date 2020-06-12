@@ -21,7 +21,7 @@
         </div>
       </div>
     </div>
-  <%= render 'mapbox'%>
+  <%= render 'mapbox', markers: @markers %>
   <% if @pet.user == current_user %>
     <div class="col s3" style="margin-left: -10px; margin-bottom: 20px;">
       <%= link_to 'Meu pet voltou para casa!',  edit_pet_path(@pet) %></li>

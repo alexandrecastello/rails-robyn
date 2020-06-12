@@ -9,8 +9,8 @@ class PetsController < ApplicationController
   end
 
   def show
-    @pets = Spotted.geocoded.where(pet_id: @pet)
-    @markers = @pets.map do |spotted|
+    # Add all pet spotted location marker (icon:species)
+    @markers = Spotted.geocoded.where(pet_id: @pet).map do |spotted|
       {
         lat: spotted.latitude,
         lng: spotted.longitude,
@@ -18,12 +18,14 @@ class PetsController < ApplicationController
         image_url: helpers.asset_url(spotted.pet.icon)
       }
     end
-    @markers << { lat: @pet.latitude, 
+    # Add pet lost_location marker (icon:house)
+    @markers << { 
+                  lat: @pet.latitude, 
                   lng: @pet.longitude,
                   infoWindow: render_to_string(partial: "pets/map_info_window", locals: { pet: @pet }),
                   image_url: helpers.asset_url('icons8-dog-house-50.png')
                 }
-    end
+  end
 
 
 

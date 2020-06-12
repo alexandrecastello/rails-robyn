@@ -34,23 +34,25 @@
     <% @pets.each do |pet| %>
 
       <div class="card mr-5">
-        <% if pet.photo.attached? %>
+        <%= link_to pet_path(pet) do %>
+          <% if pet.photo.attached? %>
 
-          <%= cl_image_tag pet.photo.key, class: "card-img-top card-pets", width: "95", height: "150" %>
+            <%= cl_image_tag pet.photo.key, class: "card-img-top card-pets", width: "95", height: "150" %>
 
-        <% else %>
-          <%= image_tag "pholder.png", class:"card-img-top card-pets" %>
-        <% end %>
-        <div class="card-body">
-          <h5 class="card-title text-center open-sans"><strong><%= pet.name %></strong></h5>
-          <br>
-          <p class="card-text text-center open-sans">Data: <%= pet.lost_date.strftime("%d/%b/%y")%></p>
-          <p class="card-text text-center open-sans">Cidade<%#=pet.lost_location %></p>
-          <p class="card-text text-center"></p>
-          <%= link_to new_pet_spotted_path(pet) do %>
-          <p class="card-text text-center mt-4"><button type="button" class="btn-custom purple">Reportar</button></p>
+          <% else %>
+            <%= image_tag "pholder.png", class:"card-img-top card-pets" %>
           <% end %>
-        </div>
+          <div class="card-body">
+            <h5 class="card-title text-center open-sans"><strong><%= pet.name %></strong></h5>
+            <br>
+            <p class="card-text text-center open-sans">Data: <%= pet.lost_date.strftime("%d/%b/%y")%></p>
+            <p class="card-text text-center open-sans">Cidade<%#=pet.lost_location %></p>
+            <p class="card-text text-center"></p>
+            <%= link_to new_pet_spotted_path(pet) do %>
+            <p class="card-text text-center mt-4"><button type="button" class="btn-custom purple">Reportar</button></p>
+            <% end %>
+          </div>
+        <% end %>  
       </div>
     <% end %>
 

@@ -11,7 +11,7 @@
       <div class="card text-center col-2 m-3 w-100 pr-0 pl-0 border-white shadow-sm">
         <%= link_to pet_path(pet) do %>
           <% if pet.photo.attached? %>
-        <%= cl_image_tag pet.photo.key, class:"card-img-top", :fetch_format=>:auto, crop: :fill %>
+        <%= cl_image_tag pet.photo.key, class:"card-img-top", width: "95", height: "95", :crop=>"scale" %>
           <% else %>
             <%= image_tag "placeholder.png", class:"card-img-top" %>
           <% end %>

@@ -2,8 +2,8 @@
   <table class="table">
   <thead>
     <th style="font-family: 'Roboto', sans-serif;">Pet</th>
-    <th style="font-family: 'Roboto', sans-serif;">Last Seen On</th>
-      <th>Action</th>
+    <th style="font-family: 'Roboto', sans-serif;">Visto Pela Última Vez Em..</th>
+      <th>Opções</th>
   </thead>
   <% @pets.each do |pet| %>
       <tr>
@@ -20,7 +20,7 @@
         <% if pet.spotteds.empty? %>
         <td><p><%= pet.species %> ainda não foi visto...<p></td>
         <% else %>
-        <td style="font-family: 'Roboto', sans-serif;"><%= link_to "#{pet.spotteds.last.time.strftime("%H:%M of %d/%b/%y")}", pet_path(pet) %></td>
+        <td style="font-family: 'Roboto', sans-serif;"><%= link_to "#{pet.spotteds.last.time.strftime("%d/%b/%y às H:%M")}", pet_path(pet) %></td>
         <%end%>
         <td>
           <div class="row justify-content-space-between">

@@ -5,7 +5,7 @@
     <div class="divisor" style="margin-top: -15px;"></div>
   </div>
 
-  <div class="row d-flex justify-content-space-around">
+  <div class="row d-flex justify-content-space-around mb-5">
     <% @pets.each do |pet| %>
       <div class="card text-center col-2 m-3 w-100 pr-0 pl-0 border-white shadow-sm">
         <%= link_to pet_path(pet) do %>
@@ -28,7 +28,7 @@
               <% end %>
               <p class="card-text text-center mt-4 link-icon"><i class="fas fa-share-alt"></i></p>
             </div>
-          </div>  
+          </div>
         <% end %>
       </div>
     <% end %>

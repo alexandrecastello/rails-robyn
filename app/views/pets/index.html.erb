@@ -16,19 +16,19 @@
           <% end %>
           <div class="card-body">
             <h5 class="card-title text-center open-sans"><strong><%= pet.name %></strong></h5>
-          <br>
-          <p class="card-text text-center open-sans">Data: <%= pet.lost_date.strftime("%d/%b/%y")%></p>
-          <p class="card-text text-center open-sans">Cidade<%#=pet.lost_location %></p>
-          <div class="d-flex flex-row justify-content-center mt-4">
-          <%= link_to new_pet_spotted_path(pet), :title => "Vi este pet!" do %>
-          <p class="card-text text-center mt-4 link-icon mr-3"><i class="fas fa-binoculars"></i></p>
-          <% end %>
-          <%= link_to pet_pdf_path(pet, format: 'pdf'), :title => "Imprimir pôster" do %>
-          <p class="card-text text-center mt-4 link-icon mr-3"><i class="fas fa-file-image"></i></p>
-          <% end %>
-          <p class="card-text text-center mt-4 link-icon"><i class="fas fa-share-alt"></i></p>
-          </div>
-          </div>
+            <br>
+            <p class="card-text text-center open-sans">Data: <%= pet.lost_date.strftime("%d/%b/%y")%></p>
+            <p class="card-text text-center open-sans">Cidade<%#=pet.lost_location %></p>
+            <div class="d-flex flex-row justify-content-center mt-4">
+              <%= link_to new_pet_spotted_path(pet), :title => "Vi este pet!" do %>
+                <p class="card-text text-center mt-4 link-icon mr-3"><i class="fas fa-binoculars"></i></p>
+              <% end %>
+              <%= link_to pet_pdf_path(pet, format: 'pdf'), :title => "Imprimir pôster" do %>
+                <p class="card-text text-center mt-4 link-icon mr-3"><i class="fas fa-file-image"></i></p>
+              <% end %>
+              <p class="card-text text-center mt-4 link-icon"><i class="fas fa-share-alt"></i></p>
+            </div>
+          </div>  
         <% end %>
       </div>
     <% end %>

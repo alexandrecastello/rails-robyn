@@ -5,12 +5,12 @@ const buildMap = (mapElement) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/alecastello/ckb9tgfy41c661itds5i1hw7d', 
-    center: [0,0]
+    style: 'mapbox://styles/mapbox/streets-v10'
   });
 };
 
 const addMarkersToMap = (map, markers) => {
+  const bounds = new mapboxgl.LngLatBounds();
   markers.forEach((marker) => {
 
     const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
@@ -37,13 +37,18 @@ const addMarkersToMap = (map, markers) => {
     newMarker.getElement().addEventListener('mouseenter', (e) => toggleCardHighlighting(e) );
     // // We put a microphone on listening for a mouseleave event
     newMarker.getElement().addEventListener('mouseleave', (e) => toggleCardHighlighting(e) );
+    bounds.extend([ marker.lng, marker.lat ])
   });
+  map.fitBounds(bounds);
+
 };
 
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
-  markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-  map.fitBounds(bounds, { padding: 200, maxZoom: 15, duration: 0 });
+  markers.forEach(marker =>{
+   bounds.extend([ marker.lng, marker.lat ])
+  });
+  map.fitBounds(bounds);
 };
 
 const openInfoWindow = (markers) => {
@@ -72,7 +77,7 @@ const initMapbox = () => {
     const markers = JSON.parse(mapElement.dataset.markers);
     const mapMarkers = [];
     addMarkersToMap(map, markers);
-    fitMapToMarkers(map, markers);
+    // fitMapToMarkers(map, markers);
     openInfoWindow(mapMarkers);
   }
 };

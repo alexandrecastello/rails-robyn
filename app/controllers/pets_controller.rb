@@ -77,7 +77,7 @@ class PetsController < ApplicationController
     if @pet.save
       redirect_to pet_path(@pet), notice: "Pet atualizado.  #{ @pet.found_date ? 'Ficamos felizes em saber que seu pet voltou!' : 'Esperamos que ele retorne logo.' }"
     else
-      redirect_to new_pet_path, notice: 'Algo deu errado, seu pet ainda não foi atualizado'
+      redirect_to pet_path(@pet), notice: 'Algo deu errado, seu pet ainda não foi atualizado'
     end
   end
 

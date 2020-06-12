@@ -1,9 +1,8 @@
-<div class="container">
+<div class="container" style="margin-top: 50px;">
 
   <div class="pl-0 pt-5" style="font-family: 'Roboto', sans-serif; font-weight: 900; font-size: 25px; line-height: 41px; color: #313131; margin-top: -20px;">
-    <p>Pets perdidos</p>
-
-
+    <p>XX Pets perdidos atualmente</p>
+    <div class="divisor" style="margin-top: -15px;"></div>
   </div>
 
   <div class="row d-flex justify-content-space-around">
@@ -11,15 +10,24 @@
       <div class="card text-center col-2 m-3 w-100 pr-0 pl-0 border-white shadow-sm">
         <%= link_to pet_path(pet) do %>
           <% if pet.photo.attached? %>
-        <%= cl_image_tag pet.photo.key, class:"card-img-top", width: "95", height: "95", :crop=>"scale" %>
+        <%= cl_image_tag pet.photo.key, class:"card-img-top card-pets", width: "95", height: "150"%>
           <% else %>
-            <%= image_tag "placeholder.png", class:"card-img-top" %>
+            <%= image_tag "pholder.png", class:"card-img-top card-pets" %>
           <% end %>
           <div class="card-body">
-            <h5 class="card-title" style="font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 18px;"><%= pet.name %></h5>
-
-            <%= link_to "PDF File", pet_pdf_path(pet, format: 'pdf') %>
-
+            <h5 class="card-title text-center open-sans"><strong><%= pet.name %></strong></h5>
+          <br>
+          <p class="card-text text-center open-sans">Data: <%= pet.lost_date.strftime("%d/%b/%y")%></p>
+          <p class="card-text text-center open-sans">Cidade<%#=pet.lost_location %></p>
+          <div class="d-flex flex-row justify-content-center mt-4">
+          <%= link_to new_pet_spotted_path(pet), :title => "Vi este pet!" do %>
+          <p class="card-text text-center mt-4 link-icon mr-3"><i class="fas fa-binoculars"></i></p>
+          <% end %>
+          <%= link_to pet_pdf_path(pet, format: 'pdf'), :title => "Imprimir pôster" do %>
+          <p class="card-text text-center mt-4 link-icon mr-3"><i class="fas fa-file-image"></i></p>
+          <% end %>
+          <p class="card-text text-center mt-4 link-icon"><i class="fas fa-share-alt"></i></p>
+          </div>
           </div>
         <% end %>
       </div>

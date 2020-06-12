@@ -9,7 +9,7 @@
 
       <div class="botoes">
         <%= link_to "Ver pets", pets_path, class: "btn-custom white mr-3"%>
-        <%= link_to "Perdi meu pet", new_pet_path, class: "btn-custom pink"%>
+        <%= link_to "Perdi meu pet", new_pet_path, class: "btn-custom pink link-white"%>
 
       </div>
 
@@ -36,60 +36,60 @@
       <div class="card mr-5">
         <% if pet.photo.attached? %>
 
-          <%= cl_image_tag pet.photo.key, class: "card-img-top card-pets", width: "95", :fetch_format=>:auto,:quality=>"auto", crop:"scale" %>
+          <%= cl_image_tag pet.photo.key, class: "card-img-top card-pets", width: "95", height: "150" %>
+
         <% else %>
           <%= image_tag "pholder.png", class:"card-img-top card-pets" %>
         <% end %>
         <div class="card-body">
-          <h5 class="card-title text-center"><%= pet.name %></h5>
+          <h5 class="card-title text-center open-sans"><strong><%= pet.name %></strong></h5>
           <br>
-          <p class="card-text text-center">Data</p>
-          <p class="card-text text-center"><%= pet.lost_date.strftime("%d/%b/%y")%><p>
-          <p class="card-text text-center">Local</p>
-          <p class="card-text text-center">##<%#=pet.lost_location %></p>
-          <%= link_to new_pet_spotted_path(pet), class: "navbar-brand" do %>
-          <p class="card-text text-center"><button type="button" class="btn-custom purple">Reportar</button></p>
+          <p class="card-text text-center open-sans">Data: <%= pet.lost_date.strftime("%d/%b/%y")%></p>
+          <p class="card-text text-center open-sans">Cidade<%#=pet.lost_location %></p>
+          <p class="card-text text-center"></p>
+          <%= link_to new_pet_spotted_path(pet) do %>
+          <p class="card-text text-center mt-4"><button type="button" class="btn-custom purple">Reportar</button></p>
           <% end %>
         </div>
       </div>
-    <% end %>  
+    <% end %>
 
     <div class="card mr-5">
-      <%= image_tag "pholder.png", class:"card-img-top card-pets" %>
+      <%= image_tag "pholder.png", class:"card-img-top card-pets", width: "95", height: "150" %>
       <div class="card-body">
-        <h5 class="card-title text-center">Card title</h5>
+        <h5 class="card-title text-center open-sans"><strong>Card title</strong></h5>
         <br>
-        <p class="card-text text-center">Data: xx/xx/xxxx</p>
-        <p class="card-text text-center">Local: Bairro</p>
+        <p class="card-text text-center open-sans">Data: xx/xx/xxxx</p>
+        <p class="card-text text-center open-sans">Cidade<%#=pet.lost_location %></p>
         <p class="card-text text-center"><button type="button" class="btn-custom purple">Reportar</button></p>
       </div>
     </div>
 
     <div class="card mr-5">
-      <%= image_tag "pholder.png", class:"card-img-top card-pets" %>
+      <%= image_tag "pholder.png", class:"card-img-top card-pets", width: "95", height: "150" %>
       <div class="card-body">
-        <h5 class="card-title text-center">Card title</h5>
+        <h5 class="card-title text-center open-sans"><strong>Card title</strong></h5>
         <br>
-        <p class="card-text text-center">Data: xx/xx/xxxx</p>
-        <p class="card-text text-center">Local: Bairro</p>
+        <p class="card-text text-center open-sans">Data: xx/xx/xxxx</p>
+        <p class="card-text text-center open-sans">Cidade<%#=pet.lost_location %></p>
         <p class="card-text text-center"><button type="button" class="btn-custom purple">Reportar</button></p>
       </div>
     </div>
 
     <div class="card mr-5">
-      <%= image_tag "pholder.png", class:"card-img-top card-pets" %>
+      <%= image_tag "pholder.png", class:"card-img-top card-pets", width: "95", height: "150" %>
       <div class="card-body">
-        <h5 class="card-title text-center">Card title</h5>
+        <h5 class="card-title text-center open-sans"><strong>Card title</strong></h5>
         <br>
-        <p class="card-text text-center">Data: xx/xx/xxxx</p>
-        <p class="card-text text-center">Local: Bairro</p>
+        <p class="card-text text-center open-sans">Data: xx/xx/xxxx</p>
+        <p class="card-text text-center open-sans">Cidade<%#=pet.lost_location %></p>
         <p class="card-text text-center"><button type="button" class="btn-custom purple">Reportar</button></p>
       </div>
     </div>
   </div>
   </div>
 
-  
+
     <%= link_to "/pets", class: "d-flex justify-content-center section mt-3" do %>
       <h2>Ver todos</h2>
     <% end %>

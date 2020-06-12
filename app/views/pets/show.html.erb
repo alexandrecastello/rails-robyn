@@ -12,17 +12,17 @@
       </div>
       <div class="col s9" style="margin-top: 50px; margin-right: 95px; width:95px">
         <div class="container" style="font-family: 'Roboto', sans-serif; margin-top: -50px;">
-            <p><strong>Especie: </strong><%= @pet.species %></p>
-            <p><strong>Descrição: </strong><%= @pet.description %></p>
-            <p><strong>Humano: </strong><%= @pet.user == current_user ? 'Você' : "#{@pet.user.first_name} #{@pet.user.last_name}" %></p>
+          <p><strong>Especie: </strong><%= @pet.species %></p>
+          <p><strong>Descrição: </strong><%= @pet.description %></p>
+          <p><strong>Humano: </strong><%= @pet.user == current_user ? 'Você' : "#{@pet.user.first_name} #{@pet.user.last_name}" %></p>
 
-            <% if @pet.user == current_user %>
-              <div class="btn-custom pink mt-3 mb-3">
-                <%= link_to 'Meu pet voltou para casa!',  edit_pet_path(@pet) %></li>
-              </div>
-              <% else %>
-                <%= link_to " Eu vi esse pet", new_pet_spotted_path(@pet),class:"btn-custom pink mt-3 mb-3" %>
-            <% end %>
+          <% if @pet.user == current_user %>
+            <div class="btn-custom pink mt-3 mb-3">
+              <%= link_to 'Meu pet voltou para casa!',  edit_pet_path(@pet) %></li>
+            </div>
+            <% else %>
+              <%= link_to " Eu vi esse pet", new_pet_spotted_path(@pet),class:"btn-custom pink mt-3 mb-3" %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -30,8 +30,7 @@
     <p> Visto em <p>
     <%= render 'mapbox'%>
 
-    <div class="col s3" style="margin-left: -10px; margin-bottom: 20px;">
-    <%= link_to 'Voltar para pets perdidos',  pets_path %></li>
+
     </div>
   </div>
 </div>

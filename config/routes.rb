@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :pets do
     resources :spotteds, only: %i[show new create]
     get "pdf", to: "pets#pdf"
+    get "imgkit", to: "pets#upload_imgkit"
   end
 
   get 'my_profile', to: "pages#my_profile", as:'profile'

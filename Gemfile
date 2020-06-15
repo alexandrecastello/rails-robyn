@@ -40,6 +40,10 @@ gem 'prawn-rails'
 # Use Pundit for authorization policies
 gem 'pundit'
 
+# imgKit converter HTML to jpg
+gem 'imgkit'
+gem 'wkhtmltoimage-binary'
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'

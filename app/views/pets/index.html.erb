@@ -27,7 +27,9 @@
                 <%= link_to pet_pdf_path(pet, format: 'pdf'), :title => "Imprimir pôster" do %>
                   <p class="card-text text-center mt-4 link-icon mr-3"><i class="fas fa-file-image"></i></p>
                 <% end %>
-                <p class="card-text text-center mt-4 link-icon"><i class="fas fa-share-alt"></i></p>
+                <%= link_to pet_imgkit_path(pet), :title => "Compartilhar" do %>
+                  <p class="card-text text-center mt-4 link-icon"><i class="fas fa-share-alt"></i></p>
+                <% end %>
               </div>
             </div>
           <% end %>

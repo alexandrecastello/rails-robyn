@@ -11,6 +11,7 @@
     "inputmask": "^5.0.3",
     "jquery": "^3.5.1",
     "mapbox-gl": "^1.11.0",
+    "places.js": "^1.19.0",
     "popper.js": "^1.16.1",
     "turbolinks": "^5.2.0"
   },

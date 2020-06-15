@@ -83,6 +83,10 @@ a:hover {
   height: 380px;
 }
 
+.card-img-top {
+  object-fit: cover;
+}
+
 .card-pets {
   border-radius: 10px 10px 0px 0px !important;
 }
@@ -228,7 +232,7 @@ a:hover {
 
 // Responsividade //
 
-@media only screen and (min-width: 320px) {
+@media only screen and (min-width: 600px) {
   .headline {
   padding-top: 100px;
   margin: auto;

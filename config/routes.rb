@@ -11,8 +11,6 @@ Rails.application.routes.draw do
     resources :spotteds, only: %i[show new create]
     get "pdf", to: "pets#pdf"
   end
-
+  get '/pets/:id/returned', to: "pets#returned", as:'returned'
   get 'my_profile', to: "pages#my_profile", as:'profile'
-
-
 end

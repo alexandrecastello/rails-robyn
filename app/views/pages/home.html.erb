@@ -22,78 +22,35 @@
 <!-- Seção "Ver pets" -->
 
 <div class="container">
-
   <div class="d-flex justify-content-center section">
     <h1 class="texto">Ajude um pet a voltar para casa</h1>
   </div>
-
-  <div class="row d-flex justify-content-center mt-5">
-
-  <div class="card-group ml-5 cards-home">
-
+  <div class="row justify-content-center mt-5 cards-home">
     <% @pets.each do |pet| %>
-
-      <div class="card mr-5">
-        <%= link_to pet_path(pet) do %>
-          <% if pet.photo.attached? %>
-
-            <%= cl_image_tag pet.photo.key, class: "card-img-top card-pets", width: "95", height: "150" %>
-
-          <% else %>
-            <%= image_tag "pholder.png", class:"card-img-top card-pets" %>
-          <% end %>
-          <div class="card-body">
-            <h5 class="card-title text-center open-sans"><strong><%= pet.name %></strong></h5>
-            <br>
-            <p class="card-text text-center open-sans">Data: <%= pet.lost_date.strftime("%d/%b/%y")%></p>
-            <p class="card-text text-center open-sans">São Paulo, SP<%#=pet.lost_location %></p>
-            <p class="card-text text-center"></p>
-            <%= link_to new_pet_spotted_path(pet) do %>
-            <p class="card-text text-center mt-4"><button type="button" class="btn-custom purple">Reportar</button></p>
+      <div class="col-6 col-md-3 mb-5">
+        <div class="card">
+          <%= link_to pet_path(pet) do %>
+            <% if pet.photo.attached? %>
+              <%= cl_image_tag pet.photo.key, class: "card-img-top card-pets", width: "95", height: "150" %>
+            <% else %>
+              <%= image_tag "pholder.png", class:"card-img-top card-pets" %>
             <% end %>
-          </div>
-        <% end %>  
+            <div class="card-body">
+              <h5 class="card-title text-center open-sans"><strong><%= pet.name %></strong></h5>
+              <br>
+              <p class="card-text text-center open-sans">Data: <%= pet.lost_date.strftime("%d/%b/%y")%></p>
+              <p class="card-text text-center open-sans">São Paulo, SP<%#=pet.lost_location %></p>
+              <p class="card-text text-center"></p>
+              <%= link_to new_pet_spotted_path(pet) do %>
+              <p class="card-text text-center mt-4"><button type="button" class="btn-custom purple">Reportar</button></p>
+              <% end %>
+            </div>
+          <% end %>  
+        </div>
       </div>
     <% end %>
-<!-- Seção "Como funciona"
 
-    <div class="card mr-5">
-      <%= image_tag "pholder.png", class:"card-img-top card-pets", width: "95", height: "150" %>
-      <div class="card-body">
-        <h5 class="card-title text-center open-sans"><strong>Card title</strong></h5>
-        <br>
-        <p class="card-text text-center open-sans">Data: xx/xx/xxxx</p>
-        <p class="card-text text-center open-sans">Cidade<%#=pet.lost_location %></p>
-        <p class="card-text text-center"><button type="button" class="btn-custom purple">Reportar</button></p>
-      </div>
-    </div>
-
-    <div class="card mr-5">
-      <%= image_tag "pholder.png", class:"card-img-top card-pets", width: "95", height: "150" %>
-      <div class="card-body">
-        <h5 class="card-title text-center open-sans"><strong>Card title</strong></h5>
-        <br>
-        <p class="card-text text-center open-sans">Data: xx/xx/xxxx</p>
-        <p class="card-text text-center open-sans">Cidade<%#=pet.lost_location %></p>
-        <p class="card-text text-center"><button type="button" class="btn-custom purple">Reportar</button></p>
-      </div>
-    </div>
-
-    <div class="card mr-5">
-      <%= image_tag "pholder.png", class:"card-img-top card-pets", width: "95", height: "150" %>
-      <div class="card-body">
-        <h5 class="card-title text-center open-sans"><strong>Card title</strong></h5>
-        <br>
-        <p class="card-text text-center open-sans">Data: xx/xx/xxxx</p>
-        <p class="card-text text-center open-sans">Cidade<%#=pet.lost_location %></p>
-        <p class="card-text text-center"><button type="button" class="btn-custom purple">Reportar</button></p>
-      </div>
-    </div>
-Seção "Como funciona" -->
   </div>
-  </div>
-
-
 </div>
     <%= link_to "/pets", class: "d-flex justify-content-center section mt-3" do %>
       <h2>Ver todos</h2>
@@ -103,14 +60,14 @@ Seção "Como funciona" -->
 
 <div class="container como-funciona" id="como-funciona">
   <%= image_tag "robyn-vector.png", class: "bird" %>
-      <div style="width: 100%;">
+      <div style="width: 100%; background-color: #FCD0D0">
         <div style="width: 50%; height: 400px; float: left; background: #F88585;">
-          <div class="row d-flex justify-content-center mt-5 feature-desc">
+          <div class="row d-flex justify-content-center mt-3 feature-desc">
             <h1>Feature Description</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non mauris sem. Phasellus vitae urna lobortis</p>
           </div>
         </div>
-        <div style="background-image: url('../assets/poster-home.png'); background-size: cover; margin-left: 50%; height: 400px;">
+        <div style="background-image: url('../assets/poster-home.png'); background-size:80%; background-position: center; background-repeat: no-repeat; margin-left: 50%; height: 400px;">
 
         </div>
       </div>

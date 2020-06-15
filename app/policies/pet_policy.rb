@@ -18,11 +18,15 @@ class PetPolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    record.user == user
   end
 
   def destroy?
-    true
+    record.user == user
+  end
+
+  def returned?
+    record.user == user
   end
 
   def pdf?

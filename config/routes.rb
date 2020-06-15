@@ -12,8 +12,6 @@ Rails.application.routes.draw do
     get "pdf", to: "pets#pdf"
     get "imgkit", to: "pets#upload_imgkit"
   end
-
+  get '/pets/:id/returned', to: "pets#returned", as:'returned'
   get 'my_profile', to: "pages#my_profile", as:'profile'
-
-
 end

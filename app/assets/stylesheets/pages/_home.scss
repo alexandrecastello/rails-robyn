@@ -71,6 +71,10 @@ a:hover {
   height: 380px;
 }
 
+.card-img-top {
+  object-fit: cover;
+}
+
 .card-pets {
   border-radius: 10px 10px 0px 0px !important;
 }
@@ -147,6 +151,12 @@ a:hover {
   height: 8px;
   background-image: linear-gradient(to right, #FE5F55, #F3A5A1);
   margin: 0 0 35px 0;
+}
+
+.divisor-bottomless {
+  width: 150px;
+  height: 8px;
+  background-image: linear-gradient(to right, #FE5F55, #F3A5A1);
 }
 
 .link-devise:link,
@@ -235,7 +245,7 @@ a:hover {
 
 // Responsividade //
 
-@media only screen and (min-width: 320px) {
+@media only screen and (min-width: 600px) {
   .headline {
   padding-top: 100px;
   margin: auto;

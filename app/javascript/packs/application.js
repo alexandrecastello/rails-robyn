@@ -27,11 +27,11 @@ import "bootstrap";
 import Inputmask from "inputmask";
 // Internal imports, e.g:
 import { initUpdateNavbarOnScroll } from './navbar';
-
+import { initAutocomplete } from '../plugins/init_autocomplete';
 // application for mapbox events
 
 import { initMapbox } from '../plugins/init_mapbox';
-
+initAutocomplete();
 document.addEventListener('turbolinks:load', () => {
 
     // Call your functions here, e.g:

@@ -7,7 +7,7 @@
         </div>
 
           <%= simple_form_for [@pet, @spotted] do |f| %>
-      <%= f.input :address, label: 'Insira o endereço completo:' %>
+      <%= f.input :address, label: 'Insira o endereço completo:', html: { id: :address }%>
       <%= f.input :time, as: :datetime,  label: "Quando você viu #{@pet.name}?" %>
       <%= f.input :seen_or_rescued, label: 'Você resgatou o pet?', collection: ['Não, apenas vi.', 'Sim, está comigo!']  %>
       <%= f.input :comments, label: "Por favor, acrescente mais detalhes:"  %>

@@ -25,12 +25,12 @@
           <br>
           <% if @pet.found_date.nil? == false %>
             <p>Este pet já foi encontrado!</p>
-              <% else %>
-                <% if @pet.user == current_user %>
-                  <%= link_to "Meu pet voltou para casa!", edit_pet_path(@pet),class:"btn-custom pink mt-3 mb-3 link-white" %>
-                    <% else %>
-                      <%= link_to " Eu vi esse pet!", new_pet_spotted_path(@pet),class:"btn-custom pink mt-3 mb-3 link-white" %>
-                <% end %>
+          <% else %>
+            <% if @pet.user == current_user %>
+              <%= link_to "Meu pet voltou para casa!", returned_path(@pet),class:"btn-custom pink mt-3 mb-3 link-white" %>
+            <% else %>
+              <%= link_to " Eu vi esse pet!", new_pet_spotted_path(@pet),class:"btn-custom pink mt-3 mb-3 link-white" %>
+            <% end %>
           <% end %>
         </div>
       </div>

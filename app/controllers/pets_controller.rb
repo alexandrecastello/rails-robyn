@@ -1,7 +1,13 @@
 class PetsController < ApplicationController
+<<<<<<< HEAD
   before_action :set_pet, only: %i[show edit update destroy ]
   #  pundit-implement
   skip_after_action :verify_authorized, only: %i[ show new upload_imgkit]
+=======
+  before_action :set_pet, only: %i[show edit update destroy pdf returned]
+  #  pundit-implement
+  skip_after_action :verify_authorized, only: %i[show new]
+>>>>>>> 9609f23441623903b59374508f5013af2d4fae20
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
@@ -28,9 +34,6 @@ class PetsController < ApplicationController
                 }
   end
 
-
-
-
   def new
     @pet = Pet.new
   end
@@ -46,8 +49,8 @@ class PetsController < ApplicationController
         @pet.icon = 'icons8-cat-50-4.png'
       when 'Ave'
         @pet.icon = 'icons8-puffin-bird-50-2.png'
-      else
-        @pet.icon = 'icons8-marker-48.png'
+    else
+      @pet.icon = 'icons8-marker-48.png'
     end
     authorize @pet
     if @pet.save
@@ -56,42 +59,39 @@ class PetsController < ApplicationController
       redirect_to new_pet_path, notice: 'Algo deu errado, seu pet ainda não foi adicionado'
     end
   end
-
+  
   def edit
-    authorize @pet
   end
-
+  
   def update
-    @pet.update(pet_params)
-    @pet.name = @pet.name.capitalize
-    case @pet.species
-      when 'Cachorro'
-        @pet.icon = 'icons8-dog-50.png'
-      when 'Gato'
-        @pet.icon = 'icons8-cat-50-4.png'
-      when 'Ave'
-        @pet.icon = 'icons8-puffin-bird-50-2.png'
+    if @pet.update(pet_params)
+      @pet.name = @pet.name.capitalize
+      case @pet.species # Icon update
+        when 'Cachorro'
+          @pet.icon = 'icons8-dog-50.png'
+        when 'Gato'
+          @pet.icon = 'icons8-cat-50-4.png'
+        when 'Ave'
+          @pet.icon = 'icons8-puffin-bird-50-2.png'
       else
         @pet.icon = 'icons8-marker-48.png'
-    end
-    authorize @pet
-    if @pet.save
+      end
+      @pet.save
       redirect_to pet_path(@pet), notice: "Pet atualizado.  #{ @pet.found_date ? 'Ficamos felizes em saber que seu pet voltou!' : 'Esperamos que ele retorne logo.' }"
     else
       redirect_to pet_path(@pet), notice: 'Algo deu errado, seu pet ainda não foi atualizado'
     end
   end
-
-  def destroy # rever se queremos que o usuário posso deletar produtos
-    authorize @pet
+  
+  def destroy 
     @pet.destroy
     redirect_to pets_path
   end
-
+  
+  def returned
+  end
+    
   def pdf
-    @pet = Pet.find(params[:pet_id])
-    authorize @pet
-
     pdf_options = {
       :page_size   => "A4",
       :page_layout => :portrait,
@@ -127,10 +127,18 @@ class PetsController < ApplicationController
   private
 
   def pet_params
-    params.require(:pet).permit(:name, :description, :species, :lost_date, :lost_location, :photo, :found_date)
+    params.require(:pet).permit(
+      :name, 
+      :description, 
+      :species, 
+      :lost_date, 
+      :lost_location, 
+      :found_date, 
+      :photo)
   end
 
   def set_pet
     @pet = Pet.find(params[:id])
+    authorize @pet
   end
 end

@@ -1,5 +1,3 @@
-// Specific CSS for your home-page
-
 body {
   background-color: white;
 }
@@ -17,16 +15,6 @@ a:hover {
   text-decoration: none;
   color: white !important;
 }
-
-// .background-top {
-//   background-image: url("../assets/newbackground.jpg");
-//   background-repeat: no-repeat;
-//   background-attachment: scroll;
-//   background-size: cover;
-//   width: 100%;
-//   height: 100vh;
-//   top: 0;
-// }
 
 .headline {
   padding-top: 150px;
@@ -180,6 +168,25 @@ a:hover {
   width: 20px;
   margin-top: 10px;
 }
+
+.card-pet-page {
+  border-radius: 10px !important;
+  box-shadow: 0 5px 15px rgba(100, 97, 103, .3) !important;
+}
+
+.text-pet-page {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  line-height: 20px;
+  margin-top: -50px;
+  margin-left: -25px;
+}
+
+.back-link {
+  font-family: Open Sans, sans-serif;
+  font-size: 16px;
+}
+
 // Botões //
 
 .btn-custom {

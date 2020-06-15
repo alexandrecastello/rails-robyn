@@ -20,7 +20,7 @@
 
     <%= yield %>
 
-    <% unless controller_name == "sessions" || controller_name == "registrations" || controller_name == "passwords" || controller_name == "pets" || controller_name == "spotteds" %>
+    <% unless controller_name == "sessions" || controller_name == "registrations" || controller_name == "passwords" || controller_name == "spotteds" %>
       <%= render 'shared/footer' %>
     <% end %>
 

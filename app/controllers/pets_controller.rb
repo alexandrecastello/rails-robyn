@@ -1,14 +1,8 @@
 class PetsController < ApplicationController
-<<<<<<< HEAD
-  before_action :set_pet, only: %i[show edit update destroy ]
-  #  pundit-implement
-  skip_after_action :verify_authorized, only: %i[ show new upload_imgkit]
-=======
   before_action :set_pet, only: %i[show edit update destroy pdf returned]
-  #  pundit-implement
-  skip_after_action :verify_authorized, only: %i[show new]
->>>>>>> 9609f23441623903b59374508f5013af2d4fae20
   skip_before_action :authenticate_user!, only: %i[index show]
+  #  pundit-implement
+  skip_after_action :verify_authorized, only: %i[show new upload_imgkit ]
 
   def index
     @pets = Pet.all

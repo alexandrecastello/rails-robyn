@@ -153,6 +153,12 @@ a:hover {
   margin: 0 0 35px 0;
 }
 
+.divisor-bottomless {
+  width: 150px;
+  height: 8px;
+  background-image: linear-gradient(to right, #FE5F55, #F3A5A1);
+}
+
 .link-devise:link,
 .link-devise:hover,
 .link-devise:visited,

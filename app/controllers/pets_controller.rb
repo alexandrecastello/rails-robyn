@@ -62,6 +62,7 @@ class PetsController < ApplicationController
   end
 
   def update
+    @pet.update(pet_params)
     @pet.name = @pet.name.capitalize
     case @pet.species
       when 'Cachorro'
@@ -114,7 +115,7 @@ class PetsController < ApplicationController
   private
 
   def pet_params
-    params.require(:pet).permit(:name, :description, :species, :lost_date, :lost_location, :photo)
+    params.require(:pet).permit(:name, :description, :species, :lost_date, :lost_location, :photo, :found_date)
   end
 
   def set_pet

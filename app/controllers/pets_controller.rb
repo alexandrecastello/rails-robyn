@@ -1,8 +1,8 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: %i[show edit update destroy pdf returned]
-  #  pundit-implement
-  skip_after_action :verify_authorized, only: %i[show new]
   skip_before_action :authenticate_user!, only: %i[index show]
+  #  pundit-implement
+  skip_after_action :verify_authorized, only: %i[show new upload_imgkit ]
 
   def index
     @pets = Pet.all
@@ -105,6 +105,19 @@ class PetsController < ApplicationController
       end
     end
   end
+
+  def upload_imgkit
+    # raise
+    @pet = Pet.find(params[:pet_id])
+    # html = File.new('app/views/spotteds/poster.html.erb')
+    @kit = IMGKit.new(render_to_string('../views/spotteds/poster.html.erb'))
+    # @kit.stylesheets << 'app/assets/stylesheets/pages/poster.scss'
+    
+      # raise
+    send_data(@kit.to_jpg, :type => "image/jpeg", :disposition => 'inline')
+    
+  end
+
 
   private
 

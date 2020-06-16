@@ -1,10 +1,10 @@
 <div class="container" style="margin-top: 50px;">
 
-  <div class="pl-0 pt-5" style="font-family: 'Open Sans', sans-serif; font-weight: 900; font-size: 22px; line-height: 41px; color: #313131; margin-top: -20px;">
-    <p><%= Pet.all.size > 0  ? Pet.all.count : "0" %> pets perdidos atualmente</p>
+
+  <div class="pl-0 pt-5" style="font-family: 'Open Sans', sans-serif; font-weight: 700; font-size: 25px; line-height: 41px; color: #313131; margin-top: -20px;">
+    <p><%= @pets.size > 0 ? @pets.count : "0" %> pets perdidos atualmente</p>
     <div class="divisor" style="margin-top: -15px;"></div>
   </div>
-
   <div class="row d-flex justify-content-center mb-5">
     <% @pets.each do |pet| %>
       <% unless pet.found_date.nil? == false %>
@@ -36,8 +36,25 @@
               </div>
             </div>
           <% end %>
-        </div>
-      <% end %>
+          <div class="card-body">
+            <h5 class="card-title text-center open-sans"><strong><%= pet.name %></strong></h5>
+            <br>
+            <p class="card-text text-center open-sans"><%= pet.lost_date.strftime("%d/%b/%y")%></p>
+            <p class="card-text text-center open-sans"><%=pet.lost_location %></p>
+            <div class="d-flex flex-row justify-content-center mt-4">
+              <%= link_to new_pet_spotted_path(pet), :title => "Vi este pet!" do %>
+                <p class="card-text text-center mt-4 link-icon mr-3"><i class="fas fa-binoculars"></i></p>
+              <% end %>
+              <%= link_to pet_pdf_path(pet, format: 'pdf'), :title => "Imprimir pôster" do %>
+                <p class="card-text text-center mt-4 link-icon mr-3"><i class="fas fa-file-image"></i></p>
+              <% end %>
+              <%= link_to pet_imgkit_path(pet), :title => "Compartilhar" do %>
+                <p class="card-text text-center mt-4 link-icon"><i class="fas fa-share-alt"></i></p>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   </div>
 

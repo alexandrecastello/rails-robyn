@@ -1,5 +1,6 @@
 class PetsController < ApplicationController
-  before_action :set_pet, only: %i[show edit update destroy pdf returned]
+  before_action :set_pet, only: %i[show edit update destroy returned]
+  before_action :set_pet_pdf, only: %i[pdf]
   skip_before_action :authenticate_user!, only: %i[index show]
   #  pundit-implement
   skip_after_action :verify_authorized, only: %i[show new upload_imgkit ]
@@ -20,8 +21,8 @@ class PetsController < ApplicationController
       }
     end
     # Add pet lost_location marker (icon:house)
-    @markers << { 
-                  lat: @pet.latitude, 
+    @markers << {
+                  lat: @pet.latitude,
                   lng: @pet.longitude,
                   infoWindow: render_to_string(partial: "pets/map_info_window", locals: { pet: @pet }),
                   image_url: helpers.asset_url('icons8-dog-house-50.png')
@@ -53,10 +54,10 @@ class PetsController < ApplicationController
       redirect_to new_pet_path, notice: 'Algo deu errado, seu pet ainda não foi adicionado'
     end
   end
-  
+
   def edit
   end
-  
+
   def update
     if @pet.update(pet_params)
       @pet.name = @pet.name.capitalize
@@ -76,15 +77,15 @@ class PetsController < ApplicationController
       redirect_to pet_path(@pet), notice: 'Algo deu errado, seu pet ainda não foi atualizado'
     end
   end
-  
-  def destroy 
+
+  def destroy
     @pet.destroy
     redirect_to pets_path
   end
-  
+
   def returned
   end
-    
+
   def pdf
     pdf_options = {
       :page_size   => "A4",
@@ -112,10 +113,10 @@ class PetsController < ApplicationController
     # html = File.new('app/views/spotteds/poster.html.erb')
     @kit = IMGKit.new(render_to_string('../views/spotteds/poster.html.erb'))
     # @kit.stylesheets << 'app/assets/stylesheets/pages/poster.scss'
-    
+
       # raise
     send_data(@kit.to_jpg, :type => "image/jpeg", :disposition => 'inline')
-    
+
   end
 
 
@@ -123,12 +124,12 @@ class PetsController < ApplicationController
 
   def pet_params
     params.require(:pet).permit(
-      :name, 
-      :description, 
-      :species, 
-      :lost_date, 
-      :lost_location, 
-      :found_date, 
+      :name,
+      :description,
+      :species,
+      :lost_date,
+      :lost_location,
+      :found_date,
       :photo)
   end
 
@@ -136,4 +137,10 @@ class PetsController < ApplicationController
     @pet = Pet.find(params[:id])
     authorize @pet
   end
+
+  def set_pet_pdf
+    @pet = Pet.find(params[:pet_id])
+    authorize @pet
+  end
+
 end

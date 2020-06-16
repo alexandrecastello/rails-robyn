@@ -123,10 +123,9 @@ class PetsController < ApplicationController
     # raise
     @pet = Pet.find(params[:pet_id])
     # html = File.new('app/views/spotteds/poster.html.erb')
-    @kit = IMGKit.new(render_to_string('../views/spotteds/poster.html.erb'))
-    # @kit.stylesheets << 'app/assets/stylesheets/pages/poster.scss'
+    @kit = IMGKit.new(render_to_string('../views/spotteds/poster.html.erb'), width: 592, height: 842)
+    # @kit.stylesheets << '../assets/stylesheets/pages/poster.scss'
 
-      # raise
     send_data(@kit.to_jpg, :type => "image/jpeg", :disposition => 'inline')
   end
 

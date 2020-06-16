@@ -1,1 +1,31 @@
-<h5>this is the poster </h5>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta property="og:description"   content="Ajude a encontrar este pet" />
+    <meta property="og:title" content="<%=@pet.species.upcase%> PERDIDO" />
+    <meta property="og:image" content="<%= @kit %>" />
+    <meta property="og:url"           content="https://www.your-domain.com/your-page.html" />
+    <meta property="og:type"          content="website" />
+  </head>
+  <body>
+    <div class="container justify-content-around">
+      <strong><h1>PROCURA-SE: <%=@pet.species.upcase%>!</h1><strong>
+      <%= cl_image_tag @pet.photo.key, class:"card-img-top card-show", width: "400", height: "400" %>
+    </div>
+      <%= @pet.user.email %> 
+      <%= @pet.user.phone %>
+      <%= @pet.description %>
+
+  </body>
+  <p>Criado por @robyn.com.br<p>  
+</html>
+
+<html>
+<head>
+  <title>Your Website Title</title>
+    <!-- You can use Open Graph tags to customize link previews.
+    Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+
+</head>
+
+</html>

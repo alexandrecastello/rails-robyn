@@ -24,27 +24,22 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import Inputmask from "inputmask";
+
 // Internal imports, e.g:
 import { initUpdateNavbarOnScroll } from './navbar';
 import { initAutocomplete } from '../plugins/init_autocomplete';
-// application for mapbox events
-
 import { initMapbox } from '../plugins/init_mapbox';
-initAutocomplete();
-document.addEventListener('turbolinks:load', () => {
+import { initInputmask } from "../plugins/init_inputmask";
+import { initFlatpickr } from '../plugins/init_flatpickr';
 
-    // Call your functions here, e.g:
-    // initSelect2();
+document.addEventListener('turbolinks:load', () => {
+  
+  // Call your functions here, e.g:
+  // initSelect2();
+  initInputmask();
+  initAutocomplete();
   initMapbox();
   initUpdateNavbarOnScroll();
-  // configuração do InputMask
-  const selector = document.getElementById("user_phone");
-  if (selector) {
-    const im = new Inputmask("(99)99999-9999");
-    im.mask(selector);
-  }
-// *********************** //
-
-
+  initFlatpickr();
 })
+  // *********************** //

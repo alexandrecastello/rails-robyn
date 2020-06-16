@@ -5,12 +5,14 @@ const buildMap = (mapElement) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10'
+    style: 'mapbox://styles/alecastello/ckb9tchky1br51hkdvpli9dnv',
+    center: [-46.8754895,-23.6815315],
+    zoom: 10
   });
 };
 
 const addMarkersToMap = (map, markers) => {
-  const bounds = new mapboxgl.LngLatBounds();
+  // const bounds = new mapboxgl.LngLatBounds();
   markers.forEach((marker) => {
 
     const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
@@ -37,9 +39,10 @@ const addMarkersToMap = (map, markers) => {
     newMarker.getElement().addEventListener('mouseenter', (e) => toggleCardHighlighting(e) );
     // // We put a microphone on listening for a mouseleave event
     newMarker.getElement().addEventListener('mouseleave', (e) => toggleCardHighlighting(e) );
-    bounds.extend([ marker.lng, marker.lat ])
+    // bounds.extend([ marker.lng, marker.lat ])
+    // console.log('fitanu nus bwaundy')
   });
-  map.fitBounds(bounds);
+  // map.fitBounds(bounds, { padding: 70, maxZoom: 13});
 
 };
 
@@ -48,7 +51,7 @@ const fitMapToMarkers = (map, markers) => {
   markers.forEach(marker =>{
    bounds.extend([ marker.lng, marker.lat ])
   });
-  map.fitBounds(bounds);
+  map.fitBounds(bounds, { padding: 70, maxZoom: 13});
 };
 
 const openInfoWindow = (markers) => {
@@ -76,8 +79,10 @@ const initMapbox = () => {
     const map = buildMap(mapElement);
     const markers = JSON.parse(mapElement.dataset.markers);
     const mapMarkers = [];
-    addMarkersToMap(map, markers);
-    // fitMapToMarkers(map, markers);
+    map.on('load', ()=>{
+      addMarkersToMap(map, markers);
+      fitMapToMarkers(map, markers);
+    });
     openInfoWindow(mapMarkers);
   }
 };

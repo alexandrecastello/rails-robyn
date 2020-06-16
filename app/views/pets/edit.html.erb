@@ -9,7 +9,7 @@
           <%= f.input :name %>
           <%= f.input :species, collection: ['Cachorro', 'Gato', 'Ave', 'Outra' ]  %>
           <%= f.input :description %>
-          <%= f.input :lost_date %>
+          <%= f.input :lost_date, input_html: { class: 'datepicker'} %>
           <%= f.input :lost_location, label: 'Endereço do último local em que foi visto' %>
           <%= f.input :photo, :label => 'Envie uma foto deste pet', as: :file %>
           <div class="row justify-content-center mt-4 mb-5">

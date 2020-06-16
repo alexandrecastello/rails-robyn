@@ -6,7 +6,7 @@
           <div class="divisor"></div>
         </div>
         <%= simple_form_for(@pet) do |f| %>
-          <%= f.input :found_date, label: 'Se seu pet retornou, insira a data de retorno' %>
+          <%= f.input :found_date, input_html: { class: 'datepicker'}, label: 'Se seu pet retornou, insira a data de retorno' %>
           <div class="row justify-content-center mt-4 mb-5">
             <%= f.submit "Editar informações", class:"btn-custom pink mt-3"%>
           </div>

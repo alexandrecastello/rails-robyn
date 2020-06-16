@@ -20,8 +20,8 @@ class PetsController < ApplicationController
       }
     end
     # Add pet lost_location marker (icon:house)
-    @markers << { 
-                  lat: @pet.latitude, 
+    @markers << {
+                  lat: @pet.latitude,
                   lng: @pet.longitude,
                   infoWindow: render_to_string(partial: "pets/map_info_window", locals: { pet: @pet }),
                   image_url: helpers.asset_url('icons8-dog-house-50.png')
@@ -53,10 +53,10 @@ class PetsController < ApplicationController
       redirect_to new_pet_path, notice: 'Algo deu errado, seu pet ainda não foi adicionado'
     end
   end
-  
+
   def edit
   end
-  
+
   def update
     if @pet.update(pet_params)
       @pet.name = @pet.name.capitalize
@@ -76,16 +76,19 @@ class PetsController < ApplicationController
       redirect_to pet_path(@pet), notice: 'Algo deu errado, seu pet ainda não foi atualizado'
     end
   end
-  
-  def destroy 
+
+  def destroy
     @pet.destroy
     redirect_to pets_path
   end
-  
+
   def returned
   end
-    
+
   def pdf
+    @pet = Pet.find(params[:pet_id])
+    authorize @pet
+
     pdf_options = {
       :page_size   => "A4",
       :page_layout => :portrait,
@@ -110,12 +113,12 @@ class PetsController < ApplicationController
 
   def pet_params
     params.require(:pet).permit(
-      :name, 
-      :description, 
-      :species, 
-      :lost_date, 
-      :lost_location, 
-      :found_date, 
+      :name,
+      :description,
+      :species,
+      :lost_date,
+      :lost_location,
+      :found_date,
       :photo)
   end
 

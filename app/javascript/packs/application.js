@@ -24,7 +24,6 @@ require("channels")
 
 // External imports
 import "bootstrap";
-
 // Internal imports, e.g:
 import { initUpdateNavbarOnScroll } from './navbar';
 import { initAutocomplete } from '../plugins/init_autocomplete';
@@ -33,8 +32,7 @@ import { initInputmask } from "../plugins/init_inputmask";
 import { initFlatpickr } from '../plugins/init_flatpickr';
 
 document.addEventListener('turbolinks:load', () => {
-  
-  // Call your functions here, e.g:
+    // Call your functions here, e.g:
   // initSelect2();
   initInputmask();
   initAutocomplete();

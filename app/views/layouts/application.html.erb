@@ -15,9 +15,11 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-
+    <% unless action_name == 'upload_imgkit'%>
+      
+        <%= render 'shared/navbar' %>
+        <%= render 'shared/flashes' %>
+    <% end %>
     <%= yield %>
 
     <% unless controller_name == "sessions" || controller_name == "registrations" || controller_name == "passwords" || controller_name == "spotteds" %>

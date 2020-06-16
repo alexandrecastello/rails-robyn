@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsRobyn</title>
+    <title>Robyn | Encontre seu pet</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,16 +16,13 @@
 
   <body>
     <% unless action_name == 'upload_imgkit'%>
-      
+
         <%= render 'shared/navbar' %>
         <%= render 'shared/flashes' %>
     <% end %>
     <%= yield %>
-
     <% unless controller_name == "sessions" || controller_name == "registrations" || controller_name == "passwords" || controller_name == "spotteds" %>
       <%= render 'shared/footer' %>
     <% end %>
-
-
   </body>
 </html>

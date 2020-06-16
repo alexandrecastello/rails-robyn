@@ -6,8 +6,8 @@ class PetsController < ApplicationController
   skip_after_action :verify_authorized, only: %i[show new upload_imgkit ]
 
   def index
-    @pets = Pet.all
     @pets = policy_scope(Pet)
+    @pets = @pets.where(found_date: nil)
   end
 
   def show

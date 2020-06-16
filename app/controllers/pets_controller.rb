@@ -109,7 +109,8 @@ class PetsController < ApplicationController
   def upload_imgkit
     # raise
     @pet = Pet.find(params[:pet_id])
-    @kit = IMGKit.new('app/views/spotteds/poster.html.erb', width: 300, height: 300)
+    # html = File.new('app/views/spotteds/poster.html.erb')
+    @kit = IMGKit.new(render_to_string('../views/spotteds/poster.html.erb'))
     # @kit.stylesheets << 'app/assets/stylesheets/pages/poster.scss'
     
       # raise

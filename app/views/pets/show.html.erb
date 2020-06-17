@@ -8,7 +8,7 @@
     <div class="row mt-3">
       <div class="col s3">
           <% if @pet.photo.attached? %>
-            <%= cl_image_tag @pet.photo.key, class:"card-img-top card-pet-page" %>
+            <%= cl_image_tag @pet.photo.key, class:"card-img-top card-pet-page", id:'image' %>
           <% else %>
             <%= image_tag "placeholder.png", class:"card-img-top card-pet-page" %>
           <% end %>

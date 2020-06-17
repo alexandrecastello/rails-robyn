@@ -1,41 +1,43 @@
-<div class="container mt-5">
-  <div class="row justify-content-center align-items-center" style="margin-top: 100px;">
-    <div class="col-md-3">
-        <h3 class="text-center open-sans">Criar conta</h3>
-        <div class="row justify-content-center align-items-center">
-          <div class="divisor"></div>
-        </div>
-
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <%= f.error_notification %>
-
-          <div class="form-inputs open-sans">
-            <%= f.input :first_name, :label => 'Nome',
-                        required: true,
-                        autofocus: true,
-                        input_html: { autocomplete: "first-name" } %>
-            <%= f.input :last_name, :label => 'Sobrenome',
-                        required: true,
-                        input_html: { autocomplete: "last-name" } %>
-            <%= f.input :email, :label => 'Email',
-                        required: true,
-                        input_html: { autocomplete: "email" }%>
-            <%= f.input :password, :label => 'Senha',
-                        required: true,
-                        hint: ("Mínimo de #{@minimum_password_length} caracteres" if @minimum_password_length),
-                        input_html: { autocomplete: "new-password" } %>
-
-            <%= f.input :phone, :label => 'Celular',
-                        required: false,
-                        input_html: { autocomplete: "phone" } %>
+<body class="pattern">
+  <div class="container mt-5">
+    <div class="row justify-content-center align-items-center" style="margin-top: 100px;">
+      <div class="col-md-3">
+          <h3 class="text-center open-sans">Criar conta</h3>
+          <div class="row justify-content-center align-items-center">
+            <div class="divisor"></div>
           </div>
 
-            <div class="row justify-content-center">
-              <div class="form-actions mt-3">
-                <%= f.submit "Criar nova conta", class:"btn-custom pink"%>
-              </div>
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= f.error_notification %>
+
+            <div class="form-inputs open-sans">
+              <%= f.input :first_name, :label => 'Nome',
+                          required: true,
+                          autofocus: true,
+                          input_html: { autocomplete: "first-name" } %>
+              <%= f.input :last_name, :label => 'Sobrenome',
+                          required: true,
+                          input_html: { autocomplete: "last-name" } %>
+              <%= f.input :email, :label => 'Email',
+                          required: true,
+                          input_html: { autocomplete: "email" }%>
+              <%= f.input :password, :label => 'Senha',
+                          required: true,
+                          hint: ("Mínimo de #{@minimum_password_length} caracteres" if @minimum_password_length),
+                          input_html: { autocomplete: "new-password" } %>
+
+              <%= f.input :phone, :label => 'Celular',
+                          required: false,
+                          input_html: { autocomplete: "phone" } %>
             </div>
-        <% end %>
+
+              <div class="row justify-content-center">
+                <div class="form-actions mt-3">
+                  <%= f.submit "Criar nova conta", class:"btn-custom pink"%>
+                </div>
+              </div>
+          <% end %>
+      </div>
     </div>
   </div>
-</div>
+</body>

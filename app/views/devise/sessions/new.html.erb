@@ -1,31 +1,33 @@
-<div class="container mt-5">
-  <div class="row justify-content-center align-items-center" style="margin-top: 150px;">
-    <div class="col-md-3">
-        <h3 class="text-center open-sans">Acesse sua conta</h3>
-        <div class="row justify-content-center align-items-center">
-          <div class="divisor-bottomless"></div>
-        </div>
-        <div class="row justify-content-center open-sans mt-2 mb-4 pink-hover">
-          <%= link_to "ou <strong>cadastre-se</strong>".html_safe, new_registration_path(resource_name) %>
-        </div>
+<body class="pattern">
+  <div class="container mt-5">
+    <div class="row justify-content-center align-items-center" style="margin-top: 150px;">
+      <div class="col-md-3">
+          <h3 class="text-center open-sans">Acesse sua conta</h3>
+          <div class="row justify-content-center align-items-center">
+            <div class="divisor-bottomless"></div>
+          </div>
+          <div class="row justify-content-center open-sans mt-2 mb-4 pink-hover">
+            <%= link_to "ou <strong>cadastre-se</strong>".html_safe, new_registration_path(resource_name) %>
+          </div>
 
-          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <div class="form-inputs open-sans">
-              <%= f.input :email, :label => 'Email',
-                  required: false,
-                   autofocus: true,
-                   input_html: { autocomplete: "email" } %>
-              <%= f.input :password, :label => 'Senha',
-                        required: false,
-                        input_html: { autocomplete: "current-password" } %>
-                        <%= link_to "Esqueceu sua senha?", new_password_path(resource_name), class: "link-devise" %>
-            </div>
-            <div class="row justify-content-center">
-              <div class="form-actions mt-4">
-                <%= f.submit "Entrar", class:"btn-custom pink"%>
+            <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="form-inputs open-sans">
+                <%= f.input :email, :label => 'Email',
+                    required: false,
+                     autofocus: true,
+                     input_html: { autocomplete: "email" } %>
+                <%= f.input :password, :label => 'Senha',
+                          required: false,
+                          input_html: { autocomplete: "current-password" } %>
+                          <%= link_to "Esqueceu sua senha?", new_password_path(resource_name), class: "link-devise" %>
               </div>
-            </div>
-            <% end %>
-      </div>
+              <div class="row justify-content-center">
+                <div class="form-actions mt-4">
+                  <%= f.submit "Entrar", class:"btn-custom pink"%>
+                </div>
+              </div>
+              <% end %>
+        </div>
+    </div>
   </div>
-</div>
+</body>

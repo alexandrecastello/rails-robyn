@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name=”viewport” content=”width=device-width, initial-scale=1.0">
 
-    <% if @pet.nil? %>
+    <% if @pet.present? %>
       <meta property="og:description"   content="Ajude a encontrar este pet" />
-      <meta property="og:title"         content="<%=@pet.species.upcase%> PERDIDO" />
+      <meta property="og:title"         content="<%=@pet.species&.upcase%> PERDIDO" />
       <meta property="og:image"         content='https://robyn.com.br/pets/<%="#{@pet.id}"%>/imgkit.jpg' />
       <meta property="og:url"           content='https://robyn.com.br/pets/<%="#{@pet.id}"%>/' />
       <!--<meta property="og:image:type"    content='https://robyn.com.br/pets/<%="#{@pet.id}"%>/' />-->

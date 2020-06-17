@@ -1,11 +1,11 @@
 <%# Partial for map info windows %>
 <div class="info window">
   <% if spotted.photo.attached? %>
-    <%= cl_image_tag spotted.photo.key, class:"card-img-top card-pet-page", width: "70", height: "70", crop: "scale"%>
+    <%= cl_image_tag spotted.photo.key, width: "70", height: "70", crop: "scale"%>
   <% else %>
-    <%= image_tag "placeholder.png", class:"card-img-top card-pet-page", size: '70x70', crop: 'scale' %>
+    <%= image_tag "placeholder.png", class:"card-pet-page", size: '110x70', crop: 'scale' %>
   <% end %>
-  <h5>Rescued?<h5><h6><%= spotted.seen_or_rescued %><h6>
-  <h5>Spotted Time:<h5><h6> <%= spotted.created_at.strftime("%d/%b/%y às %H:%M") %><h6>
-  <h5>Spotted by<h5><h6> <%= link_to "#{spotted.user.first_name}" %><h6>
+  <h5>Resgatado?<h5><h6><%= spotted.seen_or_rescued %><h6>
+  <h5>Horario:<h5><h6> <%= spotted.created_at.strftime("%d/%b/%y às %H:%M") %><h6>
+  <h5>Visto por:<h5><h6> <%= link_to "#{spotted.user.first_name}" %><h6>
 </div>

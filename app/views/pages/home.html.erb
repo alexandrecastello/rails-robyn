@@ -40,8 +40,8 @@
             <div class="card-body">
               <h5 class="card-title text-center open-sans"><strong><%= pet.name %></strong></h5>
               <br>
-              <p class="card-text text-center open-sans">Data: <%= pet.lost_date.strftime("%d/%b/%y")%></p>
-              <p class="card-text text-center open-sans">São Paulo, SP<%#=pet.lost_location %></p>
+              <p class="card-text text-center open-sans"><%= pet.lost_date.strftime("%d/%b/%y")%></p>
+              <p class="card-text text-center open-sans"><%= pet.lost_location.split(', ')[-3] %></p>
               <p class="card-text text-center"></p>
               <%= link_to new_pet_spotted_path(pet) do %>
               <p class="card-text text-center mt-4"><button type="button" class="btn-custom purple">Reportar</button></p>

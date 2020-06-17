@@ -17,10 +17,12 @@
             <%= link_to "#{pet.name.capitalize}", pet_path(pet), style: "font-family: 'Open Sans', sans-serif;" %>
           </div>
         </td>
-        <% if pet.spotteds.empty? %>
-        <td><p><%= pet.species %> ainda não foi visto<p></td>
+        <% if pet.found_date %>
+          <td><p><%= pet.name %> já voltou para casa! <p></td>
+        <% elsif pet.spotteds.empty? %>
+          <td><p><%= pet.name %> ainda não foi visto<p></td>
         <% else %>
-        <td style="font-family: 'Open Sans', sans-serif;"><%= link_to "#{pet.spotteds.last.time.strftime("%d/%b/%y às H:%M")}", pet_path(pet) %></td>
+          <td style="font-family: 'Open Sans', sans-serif;"><%= link_to "#{pet.spotteds.last.time.strftime("%d/%b/%y às H:%M")}", pet_path(pet) %></td>
         <%end%>
         <td>
           <div class="row justify-content-space-between" style="align-items: center; align-content: center;">

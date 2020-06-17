@@ -1,42 +1,44 @@
-<div class="container">
-  <table class="table table-hover" style="margin-top: 100px;">
-  <thead class="thead-dark">
-    <th style="font-family: 'Open Sans', sans-serif;">Pet</th>
-    <th style="font-family: 'Open Sans', sans-serif;">Visto pela última vez em:</th>
-    <th>Ações</th>
-  </thead>
-  <% @pets.each do |pet| %>
-      <tr>
-        <td>
-          <div class="row justify-content-space-between">
-          <% if pet.photo.attached? %>
-            <%= cl_image_tag pet.photo.key, class:"img-responsive mr-3", height: '30', width: '30', :fetch_format=>:auto, crop: :fill %>
-            <% else %>
-            <%= image_tag("pholder.png", class:"ml-3 mr-3", height: '30', width: '30') %>
-            <% end %>
-            <%= link_to "#{pet.name.capitalize}", pet_path(pet), style: "font-family: 'Open Sans', sans-serif;" %>
-          </div>
-        </td>
-        <% if pet.spotteds.empty? %>
-        <td><p><%= pet.species %> ainda não foi visto<p></td>
-        <% else %>
-        <td style="font-family: 'Open Sans', sans-serif;"><%= link_to "#{pet.spotteds.last.time.strftime("%d/%b/%y às H:%M")}", pet_path(pet) %></td>
-        <%end%>
-        <td>
-          <div class="row justify-content-space-between" style="align-items: center; align-content: center;">
-            <%= link_to pet_path(pet), method: :delete,
-            data: { confirm: "Delete item?" } do %>
-              <i class="fa fa-trash d-flex justify-content-around pr-4 link-icon"></i>
-            <% end %>
-            <%= link_to edit_pet_path(pet) do %>
-              <i class="fa fa-edit justify-content-around pr-3 link-icon"></i>
-            <% end %>
-            <%= link_to pet_path(pet) do %>
-              <i class="fa fa-paper-plane justify-content-around link-icon" aria-hidden="true"></i>
-            <% end %>
-          </div>
-        </td>
-      </tr>
-    <% end %>
-  </table>
-</div>
+<body class="pattern">
+  <div class="container">
+    <table class="table table-hover" style="margin-top: 100px;">
+    <thead class="thead-dark">
+      <th style="font-family: 'Open Sans', sans-serif;">Pet</th>
+      <th style="font-family: 'Open Sans', sans-serif;">Visto pela última vez em:</th>
+      <th>Ações</th>
+    </thead>
+    <% @pets.each do |pet| %>
+        <tr>
+          <td>
+            <div class="row justify-content-space-between">
+            <% if pet.photo.attached? %>
+              <%= cl_image_tag pet.photo.key, class:"img-responsive mr-3", height: '30', width: '30', :fetch_format=>:auto, crop: :fill %>
+              <% else %>
+              <%= image_tag("pholder.png", class:"ml-3 mr-3", height: '30', width: '30') %>
+              <% end %>
+              <%= link_to "#{pet.name.capitalize}", pet_path(pet), style: "font-family: 'Open Sans', sans-serif;" %>
+            </div>
+          </td>
+          <% if pet.spotteds.empty? %>
+          <td><p><%= pet.species %> ainda não foi visto</p></td>
+          <% else %>
+          <td style="font-family: 'Open Sans', sans-serif;"><%= link_to "#{pet.spotteds.last.time.strftime("%d/%b/%y às H:%M")}", pet_path(pet) %></td>
+          <%end%>
+          <td>
+            <div class="row justify-content-space-between" style="align-items: center; align-content: center;">
+              <%= link_to pet_path(pet), method: :delete,
+              data: { confirm: "Delete item?" } do %>
+                <i class="fa fa-trash d-flex justify-content-around pr-4 link-icon"></i>
+              <% end %>
+              <%= link_to edit_pet_path(pet) do %>
+                <i class="fa fa-edit justify-content-around pr-3 link-icon"></i>
+              <% end %>
+              <%= link_to pet_path(pet) do %>
+                <i class="fa fa-paper-plane justify-content-around link-icon" aria-hidden="true"></i>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</body>

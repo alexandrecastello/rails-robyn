@@ -3,7 +3,7 @@ require "open-uri"
 class PetsController < ApplicationController
   before_action :set_pet, only: %i[show edit update destroy returned]
   before_action :set_pet_pdf, only: %i[pdf]
-  skip_before_action :authenticate_user!, only: %i[index show]
+  skip_before_action :authenticate_user!, only: %i[index show pdf]
   #  pundit-implement
   skip_after_action :verify_authorized, only: %i[show new upload_imgkit ]
 

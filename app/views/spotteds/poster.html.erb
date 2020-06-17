@@ -1,7 +1,7 @@
 <div style="text-align:center">
   <div class="d-flex">
     <strong><h1>Procura-se</h1><strong>
-    <%= cl_image_tag @pet.photo.key, class:"card-img-top card-show", width: "450", height: "350" %>
+    <%= image_tag ("#{Cloudinary::Utils.cloudinary_url @pet.photo.key}"), class:"card-img-top card-show", width: "450", height: "350" %>
   </div>
   <div class="card-product-infos">
     <br>

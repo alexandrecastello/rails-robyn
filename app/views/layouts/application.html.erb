@@ -10,9 +10,9 @@
     <% if @pet.present? %>
       <meta property="og:description"   content="Ajude a encontrar este pet" />
       <meta property="og:title"         content="<%=@pet.species.upcase%> PERDIDO" />
-      <meta property="og:image"         content= 'https://robyn.com.br/pets/<%="#{@pet.id}"%>/imgkit' />
-      <meta property="og:url"           content='https://robyn.com.br/pets/<%="#{@pet.id}"%>/imgkit' />
-      <meta property="og:image:type"    content='https://robyn.com.br/pets/<%="#{@pet.id}"%>/imgkit' />
+      <meta property="og:image"         content='https://robyn.com.br/pets/<%="#{@pet.id}"%>/imgkit.jpg' />
+      <meta property="og:url"           content='https://robyn.com.br/pets/<%="#{@pet.id}"%>/' />
+      <!--<meta property="og:image:type"    content='https://robyn.com.br/pets/<%="#{@pet.id}"%>/' />-->
     <% end %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>

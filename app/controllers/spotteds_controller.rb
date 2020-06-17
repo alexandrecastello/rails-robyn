@@ -19,6 +19,6 @@ class SpottedsController < ApplicationController
   private
 
   def spotted_params
-    params.require(:spotted).permit(:time, :description, :address, :seen_or_rescued)
+    params.require(:spotted).permit(:time, :description, :address, :seen_or_rescued, :photo)
   end
 end

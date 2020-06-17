@@ -9,7 +9,7 @@
   <% @pets.each do |pet| %>
       <tr>
         <td>
-          <div class="row justify-content-space-between">
+          <div class="row justify-content-space-between ml-1">
           <% if pet.photo.attached? %>
             <%= cl_image_tag pet.photo.key, class:"img-responsive mr-3", height: '30', width: '30', :fetch_format=>:auto, crop: :fill %>
             <% else %>

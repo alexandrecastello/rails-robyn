@@ -98,11 +98,12 @@ class PetsController < ApplicationController
       format.html
       format.pdf do
         pdf = Prawn::Document.new(pdf_options)
-        pdf.text "Procura-se", size: 50, align: :center
         pdf.move_down 15
-        pdf.image open("#{Cloudinary::Utils.cloudinary_url @pet.photo.key}"), position: :center
-        pdf.move_down 20
-        pdf.text "#{@pet.name}", size: 40, align: :center
+        pdf.text "Procura-se", size: 50, align: :center, style: :bold
+        pdf.move_down 15
+        pdf.image open("#{Cloudinary::Utils.cloudinary_url @pet.photo.key}"), position: :center, width: 400, height: 400
+        pdf.move_down 25
+        pdf.text "#{@pet.name}", size: 40, align: :center, style: :bold
         pdf.move_down 15
         pdf.text "Espécie: #{@pet.species}", align: :center, size: 17
         pdf.text "Descrição: #{@pet.description}", align: :center, size: 17
@@ -112,8 +113,7 @@ class PetsController < ApplicationController
         pdf.move_down 20
         pdf.text "Contato: #{@pet.user.email}", align: :center, size: 17
         pdf.move_down 30
-        pdf.text "Perdeu seu pet? A gente te ajuda.", align: :center, size: 15
-        pdf.text "Acesse robyn.com.br", align: :center, size: 15
+        pdf.text "Perdeu seu pet? Acesse robyn.com.br", align: :center, size: 15
         send_data pdf.render, filename: 'pets.pdf', type: 'application/pdf'
       end
     end

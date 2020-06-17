@@ -1,67 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The change you wanted was rejected (422)</title>
+  <title>Oops! Página não encontrada</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
   <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
+
+  body {
+    background-image: url("../assets/bg-pattern.png");
+    background-repeat: repeat;
   }
 
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
+  .centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-100%, -50%);
   }
 
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  .centered p {
+    font-family: Open Sans;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 12px;
+    color: #2C2C2C;
   }
 
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
+  .error-vector {
+    width: 400px;
+  }
+  .headline {
+    position: absolute;
+    text-align: left !important;
+    width: 380px;
+    margin-left: 30px;
+  }
+  .headline h1 {
+    font-family: Archivo Black;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    color: #2C2C2C;
+  }
+  .headline p {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: #2C2C2C;
+  }
+  .headline a {
+    font-family: Open Sans;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    color: #2C2C2C;
   }
 
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  .main {
+    margin-top: 200px;
+    margin-left: 20%;
   }
+
   </style>
 </head>
 
-<body class="rails-default-error-page">
-  <!-- This file lives in public/422.html -->
-  <div class="dialog">
-    <div>
-      <h1>The change you wanted was rejected.</h1>
-      <p>Maybe you tried to change something you didn't have access to.</p>
+<body>
+
+<div class="centered">
+    <div style="display:inline-block;"><img src="../assets/error-vector.png" class="error-vector"><br><p>Ilustração: Sara Maese (Ouch)</p></div>
+
+    <div class="headline" style="display:inline-block;">
+      <h1>Oops! Página não encontrada!</h1>
+      <p>Não se desespere! A página que você está procurando não existe ou está com algum problema. Clique <a href="http://robyn.com.br">aqui</a> para retornar à nossa homepage.
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
-  </div>
+</div>
+
 </body>
 </html>

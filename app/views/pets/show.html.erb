@@ -1,3 +1,4 @@
+<body class="pattern">
 <div class="container mt-5 justify-content-center">
   <div class="justify-content-center" style="margin-top: 80px;" >
     <h3 class="open-sans" style="font-size: 36px;">Ajude a achar <strong><%= @pet.name %></strong></h3>
@@ -37,10 +38,11 @@
     </div>
     <br>
     <br>
-    <p class="open-sans" style="font-size: 22px;"><strong>Visto em</strong><p>
+    <p class="open-sans" style="font-size: 22px;"><strong>Visto em</strong></p>
       <div class="mb-5">
     <%= render 'mapbox', markers: @markers %>
       </div>
     </div>
   </div>
 </div>
+</body>

@@ -1,28 +1,30 @@
-<div class="container mt-5">
-  <div class="row justify-content-center align-items-center" style="margin-top: 150px;">
-    <div class="col-md-4">
-        <form class="form p-4" method="post">
-          <h3 class="text-center mb-3 open-sans">Esqueceu sua senha?</h3>
-        <div class="row justify-content-center align-items-center">
-          <div class="divisor"></div>
-        </div>
-          <p class="text-center mb-2 open-sans">Informe seu email para que possamos te ajudar a criar uma nova. </p>
-          <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-            <%= f.error_notification %>
+<body class="pattern">
+  <div class="container mt-5">
+    <div class="row justify-content-center align-items-center" style="margin-top: 150px;">
+      <div class="col-md-4">
+          <form class="form p-4" method="post">
+            <h3 class="text-center mb-3 open-sans">Esqueceu sua senha?</h3>
+          <div class="row justify-content-center align-items-center">
+            <div class="divisor"></div>
+          </div>
+            <p class="text-center mb-2 open-sans">Informe seu email para que possamos te ajudar a criar uma nova. </p>
+            <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+              <%= f.error_notification %>
 
-            <div class="form-inputs">
-              <%= f.input :email, :label => ' ',
-                          required: true,
-                          autofocus: true,
-                          input_html: { autocomplete: "email" } %>
-            </div>
+              <div class="form-inputs">
+                <%= f.input :email, :label => ' ',
+                            required: true,
+                            autofocus: true,
+                            input_html: { autocomplete: "email" } %>
+              </div>
 
-            <div class="row justify-content-center mt-4">
-              <%= f.submit "Enviar", class:"btn-custom pink"%>
-            </div>
-          <% end %>
-        </form>
+              <div class="row justify-content-center mt-4">
+                <%= f.submit "Enviar", class:"btn-custom pink"%>
+              </div>
+            <% end %>
+          </form>
+      </div>
     </div>
   </div>
-</div>
+</body>
 

@@ -1,31 +1,18 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta property="og:description"   content="Ajude a encontrar este pet" />
-    <meta property="og:title" content="<%=@pet.species.upcase%> PERDIDO" />
-    <meta property="og:image" content="<%= @kit %>" />
-    <meta property="og:url"           content="https://www.your-domain.com/your-page.html" />
-    <meta property="og:type"          content="website" />
-  </head>
-  <body>
-    <div style="text-align:center">
-        <div class="d-flex">
-          <strong><h1>Procura-se</h1><strong>
-          <%= cl_image_tag @pet.photo.key, class:"card-img-top card-show", width: "450", height: "350" %>
-      </div>
-      <div class="card-product-infos">
-       <br>
-        <%= @pet.name%>
-        <p>Especie: <%= @pet.species  %>
-        <p>Descricao: <%= @pet.description %>
-        <p>Perdido em: <%= @pet.lost_date.strftime("%d/%b/%y") %>
-        <p>Local: <%= @pet.lost_location %>
-        <%= @pet.user.email %> 
-        <br>
-        <br>
-        <p> Viu este pet? Reporte em www.robyn.com.br
-      </div>
-    </div>  
-  </body>
-  
-</html>
+<div style="text-align:center">
+  <div class="d-flex">
+    <strong><h1>Procura-se</h1><strong>
+    <%= cl_image_tag @pet.photo.key, class:"card-img-top card-show", width: "450", height: "350" %>
+  </div>
+  <div class="card-product-infos">
+    <br>
+    <%= @pet.name%>
+    <p>Especie: <%= @pet.species  %>
+    <p>Descricao: <%= @pet.description %>
+    <p>Perdido em: <%= @pet.lost_date.strftime("%d/%b/%y") %>
+    <p>Local: <%= @pet.lost_location %>
+    <%= @pet.user.email %> 
+    <br>
+    <br>
+    <p> Viu este pet? Reporte em www.robyn.com.br
+  </div>
+</div>  

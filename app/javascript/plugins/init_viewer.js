@@ -4,12 +4,15 @@ import 'viewerjs/dist/viewer.css';
 
 // View an image
 const initViewer = () => {
-   const viewer = new Viewer(document.getElementById('image'), {
-    modal: true,
-    viewed() {
-      // viewer.zoomTo(1);
-    },
-  });
+  const selector = document.getElementById('image');
+  if (selector) {
+    const viewer = new Viewer(selector, {
+      modal: true,
+      viewed() {
+        // viewer.zoomTo(1);
+      },
+    });
+  }
 }
 
 export { initViewer }

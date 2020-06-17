@@ -1,7 +1,7 @@
 <%# Partial for map info windows %>
 <div class="info window">
-  <% if @pet.photo.attached? %>
-    <%= cl_image_tag @pet.photo.key, class:"card-img-top card-pet-page", width: "70", height: "70", crop: "scale"%>
+  <% if spotted.photo.attached? %>
+    <%= cl_image_tag spotted.photo.key, class:"card-img-top card-pet-page", width: "70", height: "70", crop: "scale"%>
   <% else %>
     <%= image_tag "placeholder.png", class:"card-img-top card-pet-page", size: '70x70', crop: 'scale' %>
   <% end %>

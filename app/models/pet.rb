@@ -5,7 +5,7 @@ class Pet < ApplicationRecord
 
 
   has_one_attached :photo
-  
+
   geocoded_by :lost_location
 
 
@@ -13,5 +13,13 @@ class Pet < ApplicationRecord
   validates :species, presence: :true
   validates :description, presence: :true
   validates :lost_date, presence: :true
-  after_validation :geocode 
+  after_validation :geocode
+
+  include PgSearch::Model
+  pg_search_scope :global,
+    against: [ :name, :description ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
 end

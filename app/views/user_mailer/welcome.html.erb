@@ -1,0 +1,13 @@
+<h1>User#welcome</h1>
+
+  <% if @user.first_name.capitalize.last == "o" %>
+    <h5> Bem vindo ao  time, <%= @user.first_name.capitalize %>! </h5>
+  <% else %>
+    <h5> Bem vinda ao time, <%= @user.first_name.capitalize %>! </h5>
+  <% end %>
+
+  <p> Estamos muito felizes em lhe dar boas vindas! </p>
+
+  <p>Carinhosamente,
+  Equipe Robyn
+  </p>

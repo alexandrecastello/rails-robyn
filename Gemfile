@@ -35,6 +35,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
 
+# Mailers
+gem 'letter_opener', group: :development
+
 gem 'prawn-rails'
 
 # Use Pundit for authorization policies

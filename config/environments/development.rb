@@ -1,6 +1,7 @@
 Rails.application.configure do
   config.action_mailer.delivery_method = :letter_opener
-  config.action_mailer.default_url_options = { host: "http://localhost:3000" }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host: "https://robyn.com.br/" }
   # Settings specified here will take precedence over those in config/application.rb.
   config.hosts << "6a31f935577e.ngrok.io"
   # In the development environment your application's code is reloaded on

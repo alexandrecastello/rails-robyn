@@ -5,10 +5,10 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name=”viewport” content=”width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <% if @pet.present? %>
-      <meta property="og:description"   content='Perdido desde <%= @pet.lost_date.strftime("%d/%b/%y às %H:%M") %>!<%= " Visto pela última vez em  #{@pet.lost_location&.split(', ')&[-3]}" %>. Nos ajude nesta busca! ' />
+      <meta property="og:description"   content='Perdido desde <%= @pet.lost_date&.strftime("%d/%b/%y às %H:%M") %>!<%= " Visto pela última vez em  #{@pet.lost_location&.split(', ')&[-3]}" %>. Nos ajude nesta busca! ' />
       <meta property="og:title"         content="AJUDE A ENCONTRAR <%=@pet.name&.upcase%>" />
       <meta property="og:image"         content='<%= (@pet.photo.attached? ? (cl_image_path @pet.photo.key) : (image_path "placeholder.png")) %>' />
       <meta property="og:url"           content='https://robyn.com.br/pets/<%="#{@pet.slug}"%>/' />

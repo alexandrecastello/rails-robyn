@@ -105,7 +105,7 @@ class PetsController < ApplicationController
         pdf.move_down 5
         pdf.text "Procura-se", size: 50, align: :center, style: :bold
         pdf.move_down 5
-        pdf.image open("#{Cloudinary::Utils.cloudinary_url @pet.photo.key}"), position: :center, width: 400
+        pdf.image open("#{Cloudinary::Utils.cloudinary_url @pet.photo.key}"), position: :center, height: 300
         pdf.move_down 25
         pdf.text "#{@pet.name}", size: 40, align: :center, style: :bold
         pdf.move_down 5
@@ -155,7 +155,7 @@ class PetsController < ApplicationController
   end
 
   def set_pet_pdf
-    @pet = Pet.find(params[:pet_id])
+    @pet = Pet.friendly.find(params[:pet_id])
     authorize @pet
   end
 end

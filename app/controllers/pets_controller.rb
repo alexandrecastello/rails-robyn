@@ -126,7 +126,7 @@ class PetsController < ApplicationController
 
   def upload_imgkit
     # raise
-    @pet = Pet.find(params[:pet_id])
+    @pet = Pet.friendly.find(params[:pet_id])
     # html = File.new('app/views/spotteds/poster.html.erb')
     @kit = IMGKit.new(render_to_string('../views/spotteds/poster.html.erb'), width: 592, height: 842)
     # @kit.stylesheets << '../assets/stylesheets/pages/poster.scss'
@@ -150,7 +150,7 @@ class PetsController < ApplicationController
   end
 
   def set_pet
-    @pet = Pet.find(params[:id])
+    @pet = Pet.friendly.find(params[:id])
     authorize @pet
   end
 

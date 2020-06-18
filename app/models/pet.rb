@@ -8,7 +8,9 @@ class Pet < ApplicationRecord
 
   geocoded_by :lost_location
 
-
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+  
   validates :name, presence: :true
   validates :species, presence: :true
   validates :description, presence: :true

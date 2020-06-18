@@ -91,11 +91,11 @@ a:hover {
 }
 
 .link-icon {
-  color: black;
+  color: #484848;
 }
 
 .link-icon:hover {
-  color: #71349b;
+  color: #F88585;
 }
 
 .read-more {
@@ -472,3 +472,163 @@ a:hover {
     padding-top: 10px;
   }
 }
+
+// Botão de busca //
+
+// .busca {
+//   float: right;
+//   position: relative;
+// }
+
+
+#cover
+{
+  width: 250px;
+  padding: 5px 15px;
+  background-color: #F88585;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px #ff7c7c, 0 0 0 10px #ffffffeb;
+  // transform: scale(0.3);
+
+  form
+  {
+      // height: 56px;
+  }
+
+  input[type="text"]
+  {
+      width: 100%;
+      // height: 56px;
+      font-size: 18px;
+      line-height: 1;
+  }
+
+  input[type="text"]:focus {
+    outline: none;
+  }
+
+  input[type="text"]::placeholder
+  {
+      color: #FFCCCC;
+  }
+
+  #s-cover
+  {
+      width: 1px;
+      padding-left: 35px;
+  }
+
+  button
+  {
+      position: relative;
+      display: block;
+      width: 28px;
+      height: 32px;
+      cursor: pointer;
+  }
+
+  #s-circle
+  {
+      position: relative;
+      top: -4px;
+      left: 0;
+      width: 18px;
+      height: 18px;
+      margin-top: 0;
+      border-width: 15px;
+      border: 5px solid #fff;
+      background-color: transparent;
+      border-radius: 50%;
+      transition: 0.5s ease all;
+  }
+
+  button span
+  {
+      position: absolute;
+      top: 20px;
+      left: 10px;
+      display: block;
+      width: 15px;
+      height: 5px;
+      background-color: transparent;
+      border-radius: 3px;
+      transform: rotateZ(52deg);
+      transition: 0.5s ease all;
+  }
+
+  button span:before, button span:after
+  {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 15px;
+      height: 5px;
+      background-color: #fff;
+      border-radius: 3px;
+      transform: rotateZ(0);
+      transition: 0.5s ease all;
+  }
+
+  #s-cover:hover #s-circle
+  {
+      top: -1px;
+      width: 23px;
+      height: 5px;
+      border-width: 0;
+      background-color: #fff;
+      border-radius: 7px;
+  }
+
+  #s-cover:hover span
+  {
+      top: 50%;
+      left: 19px;
+      width: 8px;
+      margin-top: -3px;
+      transform: rotateZ(0);
+  }
+
+  #s-cover:hover button span:before
+  {
+      bottom: 4px;
+      transform: rotateZ(52deg);
+  }
+
+  #s-cover:hover button span:after
+  {
+      bottom: -4px;
+      transform: rotateZ(-52deg);
+  }
+  #s-cover:hover button span:before, #s-cover:hover button span:after
+  {
+      right: -2px;
+      width: 14px;
+      background-color: #fff;
+  }
+
+  .tb
+  {
+      display: table;
+      width: 100%;
+  }
+
+  .td
+  {
+      display: table-cell;
+      vertical-align: middle;
+  }
+
+  input, button
+  {
+      color: #fff;
+      font-family: Nunito;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      background-color: transparent;
+  }
+
+}
+
+

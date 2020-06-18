@@ -10,6 +10,10 @@ class PetsController < ApplicationController
   def index
     @pets = policy_scope(Pet)
     @pets = @pets.where(found_date: nil)
+
+    if params[:query].present?
+      @pets = @pets.global(params[:query])
+    end
   end
 
   def show
@@ -129,6 +133,8 @@ class PetsController < ApplicationController
 
     send_data(@kit.to_jpg, :type => "image/jpeg", :disposition => 'inline')
   end
+
+
 
   private
 

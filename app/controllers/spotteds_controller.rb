@@ -3,13 +3,13 @@ class SpottedsController < ApplicationController
 
   def new
     @spotted = Spotted.new   
-    @pet = Pet.find(params[:pet_id]) 
+    @pet = Pet.friendly.find(params[:pet_id]) 
   end
   
 
   def create
     @spotted = Spotted.new(spotted_params)
-    @spotted.pet = Pet.find(params[:pet_id])
+    @spotted.pet = Pet.friendly.find(params[:pet_id])
     @spotted.user = current_user
     @spotted.save
     redirect_to pet_path(@spotted.pet)

@@ -1,20 +1,25 @@
 <body class="pattern">
+
 <div class="container mt-5 justify-content-center">
-  <div class="justify-content-center" style="margin-top: 80px;" >
-    <h3 class="open-sans" style="font-size: 36px;">Ajude a achar <strong><%= @pet.name %></strong></h3>
-    <h5 class="open-sans">Longe de casa desde <strong><%= @pet.lost_date.strftime("%d/%b/%y")%></strong></h5>
+  <div class="d-flex flex-row justify-content-left mt-4">
+    <%= link_to pets_path do %>
+      <p class="card-text text-center mt-1 link-icon mr-3" style="font-size: 21px;"><i class="fas fa-long-arrow-alt-left"></i></p>
+    <% end %>
+</div>
+  <div class="justify-content-center"  >
+    <h3 class="nunito" style="font-size: 36px;">Ajude a achar <strong><%= @pet.name %></strong></h3>
+    <h5 class="nunito">Longe de casa desde <strong><%= @pet.lost_date.strftime("%d/%b/%y")%></strong></h5>
     <div class="divisor mt-3"></div>
-      <p><%= link_to "<< Voltar", pets_path, class: "back-link"%></p>
     <div class="row mt-3">
       <div class="col s3">
           <% if @pet.photo.attached? %>
-            <%= cl_image_tag @pet.photo.key, class:"card-img-top card-pet-page", id:'image' %>
+            <%= cl_image_tag @pet.photo.key, class:"card-img-top card-pet-page cursor-custom", id:'image' %>
           <% else %>
             <%= image_tag "placeholder.png", class:"card-img-top card-pet-page" %>
           <% end %>
       </div>
       <div class="col s9" style="margin-top: 50px; margin-right: 95px; width:95px;">
-        <div class="container text-pet-page">
+        <div class="container text-pet-page nunito">
           <p style="font-size: 22px;"><strong>Detalhes </strong></p>
           <br>
           <p><strong>Espécie: </strong><%= @pet.species %></p>
@@ -38,7 +43,7 @@
     </div>
     <br>
     <br>
-    <p class="open-sans" style="font-size: 22px;"><strong>Visto em</strong></p>
+    <p class="nunito" style="font-size: 22px;"><strong>Visto em</strong></p>
       <div class="mb-5">
     <%= render 'mapbox', markers: @markers %>
       </div>

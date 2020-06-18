@@ -7,6 +7,10 @@ body {
   background-repeat: repeat;
 }
 
+.cursor-custom {
+  cursor: pointer !important;
+}
+
 a {
   color: black;
 }
@@ -177,6 +181,10 @@ a:hover {
   font-family: Open Sans;
 }
 
+.nunito {
+  font-family: Nunito;
+}
+
 .down {
   width: 20px;
   margin-top: 10px;
@@ -188,7 +196,7 @@ a:hover {
 }
 
 .text-pet-page {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 18px;
   line-height: 20px;
   margin-top: -50px;
@@ -630,5 +638,7 @@ a:hover {
   }
 
 }
+
+
 
 

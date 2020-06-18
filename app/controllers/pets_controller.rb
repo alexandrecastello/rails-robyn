@@ -10,6 +10,10 @@ class PetsController < ApplicationController
   def index
     @pets = policy_scope(Pet)
     @pets = @pets.where(found_date: nil)
+
+    if params[:query].present?
+      @pets = @pets.global(params[:query])
+    end
   end
 
   def show
@@ -122,13 +126,15 @@ class PetsController < ApplicationController
 
   def upload_imgkit
     # raise
-    @pet = Pet.find(params[:pet_id])
+    @pet = Pet.friendly.find(params[:pet_id])
     # html = File.new('app/views/spotteds/poster.html.erb')
     @kit = IMGKit.new(render_to_string('../views/spotteds/poster.html.erb'), width: 592, height: 842)
     # @kit.stylesheets << '../assets/stylesheets/pages/poster.scss'
 
     send_data(@kit.to_jpg, :type => "image/jpeg", :disposition => 'inline')
   end
+
+
 
   private
 
@@ -144,7 +150,7 @@ class PetsController < ApplicationController
   end
 
   def set_pet
-    @pet = Pet.find(params[:id])
+    @pet = Pet.friendly.find(params[:id])
     authorize @pet
   end
 

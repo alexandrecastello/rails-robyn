@@ -8,16 +8,16 @@
     <meta name=”viewport” content=”width=device-width, initial-scale=1.0">
 
     <% if @pet.present? %>
-      <meta property="og:description"   content='Perdido desde <%= @pet.lost_date %>! Visto pela última vez em <%= @pet.lost_location&.split(', ')&[-3] %>. Nos ajude nesta busca! ' />
+      <meta property="og:description"   content='Perdido desde <%= @pet.lost_date.strftime("%d/%b/%y às %H:%M") %>!<%= " Visto pela última vez em  #{@pet.lost_location&.split(', ')&[-3]}" %>. Nos ajude nesta busca! ' />
       <meta property="og:title"         content="AJUDE A ENCONTRAR <%=@pet.name&.upcase%>" />
       <meta property="og:image"         content='<%= (@pet.photo.attached? ? (cl_image_path @pet.photo.key) : (image_path "placeholder.png")) %>' />
-      <meta property="og:url"           content='https://robyn.com.br/pets/<%="#{@pet.id}"%>/' />
+      <meta property="og:url"           content='https://robyn.com.br/pets/<%="#{@pet.slug}"%>/' />
       <!--<meta property="og:image:type"    content='https://robyn.com.br/pets/<%="#{@pet.id}"%>/' />-->
     <% end %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
   </head>

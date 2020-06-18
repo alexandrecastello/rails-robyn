@@ -8,9 +8,9 @@
     <meta name=”viewport” content=”width=device-width, initial-scale=1.0">
 
     <% if @pet.present? %>
-      <meta property="og:description"   content="Ajude a encontrar este pet" />
-      <meta property="og:title"         content="<%=@pet.species&.upcase%> PERDIDO" />
-      <meta property="og:image"         content='https://robyn.com.br/pets/<%="#{@pet.id}"%>/imgkit.jpg' />
+      <meta property="og:description"   content='Perdido desde <%= @pet.lost_date %>! Visto pela última vez em <%= @pet.lost_location.split(', ')[-3] %>. Nos ajude nesta busca! ' />
+      <meta property="og:title"         content="AJUDE A ENCONTRAR <%=@pet.name&.upcase%>" />
+      <meta property="og:image"         content='<%= (@pet.photo.attached? ? (cl_image_path @pet.photo.key) : (image_path "placeholder.png")) %>' />
       <meta property="og:url"           content='https://robyn.com.br/pets/<%="#{@pet.id}"%>/' />
       <!--<meta property="og:image:type"    content='https://robyn.com.br/pets/<%="#{@pet.id}"%>/' />-->
     <% end %>

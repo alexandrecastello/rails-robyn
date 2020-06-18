@@ -2,7 +2,7 @@ class Pet < ApplicationRecord
   belongs_to :user, class_name: 'User', foreign_key: 'user_id'
   has_many :spotteds
   has_many :helpers, through: :orders, source: :user
-  after_create :send_welcome_email
+  # after_create :send_welcome_email
 
   has_one_attached :photo
 
@@ -27,7 +27,7 @@ class Pet < ApplicationRecord
     private
 
     def send_welcome_email
-      UserMailer.with(user: self).welcome.deliver_now
+      UserMailer.with(user: self.user).welcome.deliver_now
     end
 
 end

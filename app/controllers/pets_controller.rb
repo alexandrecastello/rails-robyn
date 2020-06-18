@@ -98,22 +98,23 @@ class PetsController < ApplicationController
       format.html
       format.pdf do
         pdf = Prawn::Document.new(pdf_options)
-        pdf.move_down 15
+        pdf.move_down 5
         pdf.text "Procura-se", size: 50, align: :center, style: :bold
-        pdf.move_down 15
+        pdf.move_down 5
         pdf.image open("#{Cloudinary::Utils.cloudinary_url @pet.photo.key}"), position: :center, width: 400
         pdf.move_down 25
         pdf.text "#{@pet.name}", size: 40, align: :center, style: :bold
-        pdf.move_down 15
-        pdf.text "Espécie: #{@pet.species}", align: :center, size: 17
-        pdf.text "Descrição: #{@pet.description}", align: :center, size: 17
+        pdf.move_down 5
+        pdf.text "Espécie: #{@pet.species}", align: :center, size: 16
+        pdf.text "Descrição: #{@pet.description}", align: :center, size: 16
+        pdf.move_down 5
+        pdf.text "Perdido em: #{@pet.lost_date.strftime("%d/%b/%y às %H:%M")}", align: :center, size: 16
+        pdf.text "Local: #{@pet.lost_location.to_s}", align: :center, size: 16
         pdf.move_down 10
-        pdf.text "Perdido em: #{@pet.lost_date.strftime("%d/%b/%y às %H:%M")}", align: :center, size: 17
-        pdf.text "Local: #{@pet.lost_location.to_s}", align: :center, size: 17
+        pdf.text "Contato: #{@pet.user.email} - #{@pet.user.phone if @pet.user.phone}", align: :center, size: 16
         pdf.move_down 20
-        pdf.text "Contato: #{@pet.user.email} - #{@pet.user.phone if @pet.user.phone}", align: :center, size: 17
-        pdf.move_down 30
-        pdf.text "Perdeu seu pet? Acesse robyn.com.br/pets/#{@pet.id}", align: :center, size: 15
+        pdf.text "Viu este pet?", align: :center, size: 18
+        pdf.image open('app/assets/images/qrcode.png'), width: 100, height: 140, at: [172,120]
         send_data pdf.render, filename: "#{@pet.name}.pdf", type: 'application/pdf'
       end
     end

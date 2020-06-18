@@ -1,6 +1,11 @@
 #map {
   width: 50%;
   height: 50%;
+  margin: 0;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(100, 97, 103, 0.3) !important;
+  .mapboxgl-canvas-container {
+  }
 }
 
 .mapboxg1-popup {

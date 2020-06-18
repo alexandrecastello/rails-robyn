@@ -2,10 +2,10 @@
 <div class="info window">
   <% if spotted.photo.attached? %>
     <div >
-      <%= cl_image_tag spotted.photo.key, class:"card-img-top card-pet-page mb-3", id:'image', width: "70", height: "70", crop: "scale"%>
+      <%= cl_image_tag spotted.photo.key, class:"card-img-top card-pet-page mb-3", id:'spotted_image', width: "70", height: "70" %>
     </div>
   <% end %>
   <h5>Resgatado?<h5><h6><%= spotted.seen_or_rescued %><h6>
   <h5>Quando foi visto?<h5><h6> <%= spotted.time.strftime("%d/%b/%y às %H:%M") %><h6>
-  <h5>Visto por <h5><h6> <%= link_to "#{spotted.user.first_name}" %><h6>
+  <h5>Visto por <h5><h6><%= mail_to spotted.user.email, spotted.user.first_name %><h6>
 </div>

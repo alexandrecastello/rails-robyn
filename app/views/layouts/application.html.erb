@@ -36,7 +36,7 @@
         <%= render 'shared/flashes' %>
     <% end %>
     <%= yield %>
-    <% unless controller_name == "sessions" || controller_name == "registrations" || controller_name == "passwords" || controller_name == "spotteds" %>
+    <% unless controller_name == "sessions" || controller_name == "registrations" || controller_name == "passwords" || controller_name == "spotteds" || action_name == 'my_profile' %>
       <%= render 'shared/footer' %>
     <% end %>
   </body>

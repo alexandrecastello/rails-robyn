@@ -11,8 +11,10 @@
       <meta property="og:description"   content='Perdido desde <%= @pet.lost_date&.strftime("%d/%b/%y às %H:%M") %>!<%= " Visto pela última vez em  #{@pet.lost_location&.split(', ')&[-3]}" %>. Nos ajude nesta busca! ' />
       <meta property="og:title"         content="AJUDE A ENCONTRAR <%=@pet.name&.upcase%>" />
       <meta property="og:image"         content='<%= (@pet.photo.attached? ? (cl_image_path @pet.photo.key) : (image_path "placeholder.png")) %>' />
+      <meta property="og:image:width"   content="1200" />
+      <meta property="og:image:height"  content="630" />
       <meta property="og:url"           content='https://robyn.com.br/pets/<%="#{@pet.slug}"%>/' />
-      <!--<meta property="og:image:type"    content='https://robyn.com.br/pets/<%="#{@pet.id}"%>/' />-->
+      <meta property="og:type"          content='website'/>
     <% end %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>

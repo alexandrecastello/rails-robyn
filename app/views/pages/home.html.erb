@@ -27,32 +27,28 @@
   </div>
   <div class="row justify-content-around mt-5 cards-home">
     <% @pets.each do |pet| %>
-
-    <% unless pet.found_date.nil? == false %>
-      <div class="mb-5">
-        <div class="card">
-          <%= link_to pet_path(pet) do %>
-            <% if pet.photo.attached? %>
-              <%= cl_image_tag pet.photo.key, class: "card-img-top card-pets", width: "95", height: "150" %>
-            <% else %>
-              <%= image_tag "pholder.png", class:"card-img-top card-pets", width: "95", height: "150" %>
-            <% end %>
-            <div class="card-body">
-              <h5 class="card-title text-center open-sans"><strong><%= pet.name %></strong></h5>
-              <br>
-              <p class="card-text text-center open-sans"><%= pet.lost_date.strftime("%d/%b/%y")%></p>
-              <p class="card-text text-center open-sans"><%= pet.lost_location.split(', ')[-3] %></p>
-              <p class="card-text text-center"></p>
-              <%= link_to new_pet_spotted_path(pet) do %>
-              <p class="card-text text-center mt-4"><button type="button" class="btn-custom purple">Reportar</button></p>
-              <% end %>
-            </div>
+    <div class="mb-5">
+      <div class="card">
+        <%= link_to pet_path(pet) do %>
+          <% if pet.photo.attached? %>
+            <%= cl_image_tag pet.photo.key, class: "card-img-top card-pets", width: "95", height: "150" %>
+          <% else %>
+            <%= image_tag "pholder.png", class:"card-img-top card-pets", width: "95", height: "150" %>
           <% end %>
-        </div>
+          <div class="card-body">
+            <h5 class="card-title text-center open-sans"><strong><%= pet.name %></strong></h5>
+            <br>
+            <p class="card-text text-center open-sans"><%= pet.lost_date.strftime("%d/%b/%y")%></p>
+            <p class="card-text text-center open-sans"><%= pet.lost_location.split(', ')[-3] %></p>
+            <p class="card-text text-center"></p>
+            <%= link_to new_pet_spotted_path(pet) do %>
+            <p class="card-text text-center mt-4"><button type="button" class="btn-custom purple">Reportar</button></p>
+            <% end %>
+          </div>
+        <% end %>
       </div>
-      <% end %>
+    </div>
     <% end %>
-
   </div>
 </div>
     <%= link_to "/pets", class: "d-flex justify-content-center section mt-3" do %>

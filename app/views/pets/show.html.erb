@@ -43,7 +43,9 @@
           </div>
         </div>
       </div>
-      <br>
+      <%= link_to pet_pdf_path(@pet, format: 'pdf'), :title => "Imprimir pôster" do %>
+        <p class="card-text mt-3 link-icon" style="font-size: 15px;"><i class="fas fa-file-image"></i> Imprimir pôster</p>
+      <% end %>
       <br>
       <p class="nunito" style="font-size: 22px;"><strong>Visto em</strong></p>
       <div class="mb-5">

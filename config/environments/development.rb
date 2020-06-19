@@ -3,7 +3,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: "https://robyn.com.br/" }
   # Settings specified here will take precedence over those in config/application.rb.
-  config.hosts << "6a31f935577e.ngrok.io"
+  config.hosts << "1398d88d135e.ngrok.io"
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.

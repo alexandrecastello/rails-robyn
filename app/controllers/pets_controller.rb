@@ -9,9 +9,7 @@ class PetsController < ApplicationController
 
   def index
     @pets = policy_scope(Pet)
-    @pets = @pets.where(found_date: nil).sort_by &:created_at
-    @pets.reverse!
-
+    @pets = @pets.where(found_date: nil).order(created_at: :desc)
     if params[:query].present?
       @pets = @pets.global(params[:query])
     end

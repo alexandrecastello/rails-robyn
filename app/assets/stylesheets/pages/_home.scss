@@ -1,3 +1,11 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
   background-color: white;
 }
@@ -23,53 +31,6 @@ a:hover {
 .link-white:hover {
   text-decoration: none;
   color: white !important;
-}
-
-.headline {
-  padding-top: 150px;
-}
-
-.headline h1 {
-  width: 75%;
-  font-family: Archivo Black;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 5vw;
-  line-height: 90px;
-  color: #2C2C2C;
-  margin-bottom: 40px;
-}
-
-.section {
-  margin-top: 10px;
-}
-
-.section h1 {
-  font-family: Archivo Black;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 45px;
-  line-height: 55px;
-  color: #767474;
-  text-align: center;
-  width: 40%;
-}
-
-.section h2 {
-  font-family: Archivo Black;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 65px;
-  color: #767474;
-  text-align: center;
-  width: 50%;
-}
-
-.section img {
-  width: 43px;
-  height: 43px;
-  margin-bottom: -30px;
 }
 
 .card {
@@ -407,287 +368,338 @@ a:hover {
       border: 0;
       background-color: transparent;
   }
-
 }
 
-// Responsividade //
+// Responsivity media queries //
 
-@media only screen and (min-width: 320px) {
-  .headline {
-  padding-top: 100px;
-  margin: auto;
-  display: inline-block;
-  }
-  .headline h1 {
-  width: 70%;
-  margin-left: 20px;
-  font-family: Archivo Black;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 6vw;
-  line-height: 1.05;
-  color: #2C2C2C;
-  margin-bottom: 15px;
-  margin-top: -30px;
-}
-  .background-top {
-  background-image: url("../assets/main-bg-mobile.jpg");
-  background-size: cover;
-  width: 100%;
-  height: 50vh;
-}
-.botoes {
-  margin-left: 20px;
-}
-
-.section h1 {
-  font-family: Archivo Black;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 55px;
-  line-height: 1.05;
-  color: #767474;
-  text-align: center;
-  width: 70%;
-}
-  .section h2 {
-    font-family: Archivo Black;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 1.05;
-    color: #767474;
-    text-align: center;
-    width: 50%;
-  }
-
-  // #como-funciona {
-    // display: none;
-  // }
-
-}
-
-@media only screen and (min-width: 600px) {
-  .headline {
-    padding-top: 100px;
-    margin: auto;
-    display: inline-block;
-  }
-  .headline h1 {
-    width: 80%;
-    margin-left: 20px;
-    font-family: Archivo Black;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 7vw;
-    line-height: 65px;
-    color: #2C2C2C;
-    margin-bottom: 30px;
-  }
-  .background-top {
+@media only screen and (min-width: 320px) and (max-width: 599px) {
+  
+  // Header elements
+  .header {
+    position: relative;
+    height: 100vh;
     background-image: url("../assets/main-bg-mobile.jpg");
     background-size: cover;
-    width: 100%;
-    height: 50vh;
+    background-position: top;
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
   }
-  .botoes {
-    margin-left: 20px;
-  }
-  .section h1 {
-    font-family: Archivo Black;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 40px;
-    line-height: 55px;
-    color: #767474;
-    text-align: center;
-    width: 60%;
-    margin-top: 20px;
-  }
-  .section h2 {
-    font-family: Archivo Black;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 65px;
-    color: #767474;
-    text-align: center;
+  .heading {
+    backface-visibility: hidden;
+    padding-top: 20%;
+    margin-left: 10%;
     width: 50%;
   }
-  // #como-funciona {
-    // display: none;
-  // }
+  .heading-primary {
+    color: #2C2C2C;
+    font-family: 'Nunito', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    backface-visibility: hidden;
+  }
+  .buttons-line {
+    padding-top: 5%;
+    width: 125%;
+  }
+
+  // Top buttons line
+
+  .btn-custom {
+    font-family: Open Sans;
+    font-size: 12px;
+    font-weight: 400;
+    color: #fff;
+    cursor: pointer;
+    height: 35px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    padding: 5px 20px;
+    border-radius: 40px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    text-decoration: none;
+  }
+
+  // "See Pets" section
+
+  .section h1 {
+    color: #767474;
+    font-family: 'Nunito', sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 35px;
+    width: 60%;
+  }
+  .section h2 {
+    color: #767474;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+  }
+
+  // "How it works" section
+
+  #como-funciona {
+    display: none;
+  }
+
+  // Footer section
+
+  .footer-text {
+    color: #2C2C2C;
+    font-family: "Archivo Black", sans-serif;
+    font-size: 30px;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1023px) {
+
+// Header elements
+
+  .header {
+    position: relative;
+    height: 100vh;
+    background-image: url("../assets/main-bg-mobile.jpg");
+    background-size: cover;
+    background-position: top;
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
+  .heading {
+    backface-visibility: hidden;
+    padding-top: 12%;
+    margin-left: 10%;
+    width: 45%;
+  }
+  .heading-primary {
+    color: #2C2C2C;
+    font-family: 'Nunito', sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    backface-visibility: hidden;
+  }
+  .buttons-line {
+    padding-top: 5%;
+    width: 125%;
+  }
+
+// "See Pets" section
+
+  .section h1 {
+    color: #767474;
+    font-family: 'Nunito', sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 30px;
+    width: 40%;
+  }
+  .section h2 {
+    color: #767474;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 65px;
+  }
+
+// "How it works" section
+
+  #como-funciona {
+    display: none;
+  }
+
+// Footer section
+
+  .footer-text {
+    color: #2C2C2C;
+    font-family: "Archivo Black", sans-serif;
+    font-size: 35px;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
-  .background-top {
+
+  // Header elements
+
+  .header {
+    position: relative;
+    height: 100vh;
     background-image: url("../assets/main-bg-1024.jpg");
     background-size: cover;
-    width: 100%;
-    height: 100vh;
-    margin-bottom: 50px;
-  }
-  .headline {
+    background-position: top;
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+}
+  .heading {
+    backface-visibility: hidden;
     padding-top: 10%;
-    margin-left: -50px;
+    margin-left: 50px;
+    width: 25%;
   }
-  .headline h1 {
-    width: 40%;
-    margin-left: 0;
-    font-family: Archivo Black;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 4vw;
-    line-height: 55px;
+  .heading-primary {
     color: #2C2C2C;
-    margin-bottom: 40px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    backface-visibility: hidden;
   }
-  .botoes {
-    margin-top: -10px;
-    margin-left: 0rem;
+  .buttons-line {
+    padding-top: 5%;
+    width: 125%;
   }
+
+  // "See Pets" section
+
   .section h1 {
-    font-family: Archivo Black;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 35px;
-    line-height: 45px;
     color: #767474;
-    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    font-size: 45px;
+    font-weight: 800;
+    line-height: 55px;
     width: 40%;
   }
   .section h2 {
-    font-family: Archivo Black;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 65px;
     color: #767474;
-    text-align: center;
-    width: 50%;
+    font-family: 'Nunito', sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 65px;
   }
-  .section img {
-    width: 43px;
-    height: 43px;
-    margin-bottom: -30px;
-  }
+
+  // "How it works" section
+
   .found-text {
     padding-top: 10px;
+  }
+
+  // Footer section
+
+  .footer-text {
+    color: #2C2C2C;
+    font-family: "Archivo Black", sans-serif;
+    font-size: 35px;
   }
 }
 
 @media only screen and (min-width: 1200px) {
-  .background-top {
+
+  // Header elements
+
+  .header {
+    position: relative;
+    height: 100vh;
     background-image: url("../assets/main-bg-1200.jpg");
     background-size: cover;
-    width: 100%;
-    height: 100vh;
-    margin-bottom: 50px;
+    background-position: top;
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+}
+  .heading {
+    backface-visibility: hidden;
+    padding-top: 8%;
+    margin-left: 50px;
+    width: 25%;
   }
-  .headline {
-    padding-top: 10%;
-    margin-left: -50px;
-  }
-  .headline h1 {
-    width: 40%;
-    margin-left: 0;
-    font-family: Archivo Black;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 4vw;
-    line-height: 55px;
+  .heading-primary {
     color: #2C2C2C;
-    margin-bottom: 40px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 50px;
+    font-weight: 800;
+    backface-visibility: hidden;
   }
-  .botoes {
-    margin-top: -10px;
-    margin-left: 0rem;
+  .buttons-line {
+    padding-top: 5%;
   }
+
+  // "See Pets" section
+
   .section h1 {
-    font-family: Archivo Black;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 45px;
-    line-height: 55px;
     color: #767474;
-    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    font-size: 45px;
+    font-weight: 800;
+    line-height: 55px;
     width: 40%;
   }
   .section h2 {
-    font-family: Archivo Black;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 65px;
     color: #767474;
-    text-align: center;
-    width: 50%;
+    font-family: 'Nunito', sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 65px;
   }
-  .section img {
-    width: 43px;
-    height: 43px;
-    margin-bottom: -30px;
-  }
+
+  // "How it works" section
+
   .found-text {
     padding-top: 10px;
   }
+
+  // Footer section
+
+  .footer-text {
+    color: #2C2C2C;
+    font-family: "Archivo Black", sans-serif;
+    font-size: 35px;
+    }
 }
 
 @media only screen and (min-width: 1600px) {
-  .background-top {
+
+  // Header elements
+
+  .header {
+    position: relative;
+    height: 100vh;
     background-image: url("../assets/main-bg-1600.jpg");
     background-size: cover;
-    width: 100%;
-    height: 100vh;
-    margin-bottom: 50px;
+    background-position: top;
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+}
+  .heading {
+    backface-visibility: hidden;
+    padding-top: 5%;
+    margin-left: 50px;
+    width: 25%;
   }
-  .headline {
-    padding-top: 10%;
-    margin-left: -200px;
+  .heading-primary {
+    color:#2C2C2C;
+    font-family: 'Nunito', sans-serif;
+    font-size: 70px;
+    font-weight: 800;
+    backface-visibility: hidden;
   }
-  .headline h1 {
-    width: 46%;
-    margin-left: 0;
-    font-family: Archivo Black;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 4vw;
-    line-height: 75px;
-    color: #2C2C2C;
-    margin-bottom: 40px;
+  .buttons-line {
+    padding-top: 5%;
   }
-  .botoes {
-    margin-top: -10px;
-    margin-left: 0rem;
-  }
+
+  // "See Pets" section
+
   .section h1 {
-    font-family: Archivo Black;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 45px;
-    line-height: 55px;
     color: #767474;
-    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    font-size: 45px;
+    font-weight: 800;
+    line-height: 55px;
     width: 40%;
   }
   .section h2 {
-    font-family: Archivo Black;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 65px;
     color: #767474;
-    text-align: center;
-    width: 50%;
+    font-family: 'Nunito', sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 65px;
   }
-  .section img {
-    width: 43px;
-    height: 43px;
-    margin-bottom: -30px;
-  }
+
+  // "How it works" section
+
   .found-text {
     padding-top: 10px;
   }
-}
 
+  // Footer section
+
+  .footer-text {
+    color: #2C2C2C;
+    font-family: "Archivo Black", sans-serif;
+    font-size: 35px;
+    }
+}
